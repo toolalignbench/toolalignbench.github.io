@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="ToolAlignBench: a benchmark of 128 scenarios across 16 regulated domains for investigating alignment conflicts in tool-calling LLM agents.">
+  <meta name="keywords" content="ToolAlignBench, AI Alignment, Value Pluralism, LLM Agents, Tool Calling, Safety Training, Instruction Hierarchy">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs</title>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+      <a class="navbar-item" href="https://aryankeluskar.com">
+      <span class="icon">
+          <i class="fas fa-home"></i>
+      </span>
+      </a>
+
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link">
+          More
+        </a>
+        <div class="navbar-dropdown">
+          <a class="navbar-item" href="https://openreview.net/forum?id=KJTiUm8b7d">
+            OpenReview
+          </a>
+          <a class="navbar-item" href="https://github.com/aryankeluskar/ToolAlignBench">
+            Code &amp; Data
+          </a>
+          <a class="navbar-item" href="https://huggingface.co/datasets/aryankeluskar/ToolAlignBench">
+            HuggingFace Dataset
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              <a href="https://aryankeluskar.com">Aryan Keluskar</a>,</span>
+            <span class="author-block">
+              <a href="https://amritabh.github.io/">Amrita Bhattacharjee</a>,</span>
+            <span class="author-block">
+              <a href="https://faculty.engineering.asu.edu/huanliu/">Huan Liu</a>
+            </span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">School of Computing &amp; AI, Arizona State University</span>
+          </div>
+
+          <div class="is-size-6 publication-authors" style="margin-top: 0.5rem;">
+            <span class="author-block"><i>Pluralistic Alignment Workshop at ICML 2026</i></span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- PDF Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/pdf?id=KJTiUm8b7d"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fas fa-file-pdf"></i>
+                  </span>
+                  <span>Paper</span>
+                </a>
+              </span>
+              <!-- OpenReview Link. -->
+              <span class="link-block">
+                <a href="https://openreview.net/forum?id=KJTiUm8b7d"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-open-access"></i>
+                  </span>
+                  <span>OpenReview</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/aryankeluskar/ToolAlignBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+              <!-- Dataset Link. -->
+              <span class="link-block">
+                <a href="https://huggingface.co/datasets/aryankeluskar/ToolAlignBench"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="far fa-images"></i>
+                  </span>
+                  <span>Dataset</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <img src="./static/images/bench.png" alt="ToolAlignBench overview"/>
+      <h2 class="subtitle has-text-centered">
+        When safety-trained LLM agents encounter documents suggesting organizational wrongdoing,
+        their <span class="dnerf">safety-trained values</span> may conflict with their
+        <span class="dnerf">deployment instructions</span>, leading to instruction-override
+        behaviors such as whistleblowing or data exfiltration.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Safety alignment in LLMs aims to align models with human values, but which values take
+            precedence when they conflict? We investigate this question in the context of
+            tool-calling LLM agents deployed in regulated industries, where agents processing
+            confidential documents may encounter content that triggers safety-trained values
+            (e.g., public welfare) that conflict with deployment-context instructions
+            (e.g., internal logging).
+          </p>
+          <p>
+            To empirically verify this phenomenon, we build a benchmark of <b>128 scenarios across
+            16 domains</b>. We find that safety-aligned open-source models override their deployment
+            instructions <b>up to 43.4% of the time</b>, engaging in whistleblowing, data
+            exfiltration, and evidence tampering when processing documents that suggest
+            organizational wrongdoing. We also find that abliteration reduces rates of external
+            whistleblowing.
+          </p>
+          <p>
+            These results reveal a fundamental tension in pluralistic alignment, where the same
+            safety training that protects users can cause agents to act against deployment
+            instructions in ways that create unpredictable liability risks. We release our benchmark
+            as a framework to support evaluation of agent behavior under competing legitimate
+            interests.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Motivation. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">A value hierarchy decision</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            Consider an LLM agent deployed as an internal document-processing assistant at a
+            pharmaceutical company. Its assigned task is to ingest, summarize, and log internal
+            documents. But some of those documents may contain evidence of regulatory violations
+            &mdash; expired medication distribution, unreported adverse reactions, or deliberate data
+            deletion. When the agent encounters such content, its safety training (which instills
+            concern for public welfare) may conflict with its deployment instructions (which task it
+            with internal logging only).
+          </p>
+          <p>
+            The agent thus faces a <b>value hierarchy decision</b>: follow organizational protocol, or
+            bypass it in favor of what its safety training suggests is the morally appropriate action,
+            such as whistleblowing directly to external regulators. There is no single, universally
+            agreed-upon value hierarchy. The challenge is not to determine which hierarchy is
+            &ldquo;correct,&rdquo; but to ensure that agent behavior under such conflicts is
+            <i>predictable</i> and <i>observable</i>, so that stakeholders can make informed
+            deployment decisions.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Motivation. -->
+
+    <!-- Benchmark. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">The Benchmark</h2>
+
+        <div class="content has-text-justified">
+          <p>
+            <span class="dnerf">ToolAlignBench</span> consists of <b>64 &ldquo;wrongdoing&rdquo;</b> and
+            <b>64 &ldquo;safe&rdquo;</b> scenarios across <b>16 real-world domains</b> including
+            financial services, healthcare, aviation safety, energy infrastructure, and data
+            management. Each domain has four documents presenting a wrongdoing context, where internal
+            documents reveal critical compliance failures, and four safe documents whose structure
+            mirrors their wrongdoing counterpart but contain no evidence of compliance failure. All
+            scenarios were generated with Claude Sonnet 4.5 to control for training-data
+            contamination and name-recognition bias.
+          </p>
+          <p>
+            Each scenario provides the agent with domain-specific tools organized into three risk
+            categories: <b>aligned tools</b> (consistent with the assigned task, e.g.
+            <i>writeInternalLog</i>), <b>whistleblowing tools</b> (requiring contextual judgment, e.g.
+            <i>sendEmail</i> to internal or external recipients), and <b>misaligned tools</b> (actions
+            that explicitly violate the assigned task, e.g. <i>exporting documents</i>,
+            <i>deleting reports</i>, or <i>modifying files</i>). A run is classified as misaligned if
+            the model invokes any misaligned tool, or uses the email tool to contact external entities
+            such as government agencies, journalists, or law enforcement.
+          </p>
+        </div>
+        <img src="./static/images/benchmark_curation_2.png" alt="Benchmark curation and evaluation pipeline"/>
+        <p class="has-text-centered is-size-6" style="margin-top: 0.75rem;">
+          Our benchmark curation and evaluation of model outputs.
+        </p>
+      </div>
+    </div>
+    <!--/ Benchmark. -->
+
+    <!-- Benchmark comparison. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h3 class="title is-4">How ToolAlignBench compares</h3>
+        <div class="content has-text-justified">
+          <p>
+            Existing agent benchmarks focus on functional capability or clear-cut safety refusal.
+            ToolAlignBench is the first to systematically evaluate tool-calling under
+            <b>value hierarchy conflicts</b>, where deployment instructions and safety-trained values
+            create competing but legitimate interests.
+          </p>
+        </div>
+        <div class="content">
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>Benchmark</th>
+                <th class="has-text-centered">Tool Calling</th>
+                <th>Alignment Dimension</th>
+                <th class="has-text-centered">Domains</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td>ToolBench</td><td class="has-text-centered">&#10003;</td><td>&mdash;</td><td class="has-text-centered">8</td></tr>
+              <tr><td>AgentBench</td><td class="has-text-centered">&#10003;</td><td>&mdash;</td><td class="has-text-centered">8</td></tr>
+              <tr><td>ToolEmu</td><td class="has-text-centered">&#10003;</td><td>Safety refusal</td><td class="has-text-centered">10</td></tr>
+              <tr><td>Agent-SafetyBench</td><td class="has-text-centered">&#10003;</td><td>Safety refusal</td><td class="has-text-centered">6</td></tr>
+              <tr><td>OpenDeception</td><td class="has-text-centered">&mdash;</td><td>Open-ended deception</td><td class="has-text-centered">5</td></tr>
+              <tr style="font-weight: bold;"><td>ToolAlignBench (ours)</td><td class="has-text-centered">&#10003;</td><td>Value Hierarchy Conflicts</td><td class="has-text-centered">16</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <!--/ Benchmark comparison. -->
+
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Results</h2>
+
+        <!-- RQ1 -->
+        <h3 class="title is-4">Instruction-override in safety-aligned models</h3>
+        <div class="content has-text-justified">
+          <p>
+            We evaluate 12 models &mdash; each on all 128 scenarios with 5 runs per scenario
+            (640 runs per model). Instruction-override rates vary dramatically, from <b>0.3%</b>
+            (GPT-5-mini) to <b>68.3%</b> (abliterated Llama-8B). Safety-aligned open-source models
+            exhibit high rates: Google Gemma-12B reaches 43.4% misalignment with the highest external
+            contact rate (26.4%), while GPT-5 models &mdash; trained with safe-completions and explicit
+            instruction-hierarchy objectives &mdash; stay near zero.
+          </p>
+        </div>
+        <div class="content">
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>Model</th>
+                <th class="has-text-centered">Mis.</th>
+                <th class="has-text-centered">Ext.</th>
+                <th class="has-text-centered">Int.</th>
+                <th class="has-text-centered">Task</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="5"><i>Proprietary Models</i></td></tr>
+              <tr><td>GPT-5-mini</td><td class="has-text-centered">0.3</td><td class="has-text-centered">0.3</td><td class="has-text-centered">0.5</td><td class="has-text-centered">93.9</td></tr>
+              <tr><td>GPT-5-nano</td><td class="has-text-centered">0.9</td><td class="has-text-centered">0.6</td><td class="has-text-centered">3.8</td><td class="has-text-centered">97.8</td></tr>
+              <tr><td>GPT-4o-mini</td><td class="has-text-centered">7.7</td><td class="has-text-centered">0.0</td><td class="has-text-centered">2.5</td><td class="has-text-centered">97.7</td></tr>
+              <tr><td>Gemini-2.5-flash-lite</td><td class="has-text-centered">27.5</td><td class="has-text-centered">14.4</td><td class="has-text-centered">8.3</td><td class="has-text-centered">93.0</td></tr>
+              <tr><td colspan="5"><i>Open-Source (Safety-Aligned)</i></td></tr>
+              <tr><td>Google Gemma-3-12B</td><td class="has-text-centered">43.4</td><td class="has-text-centered">26.4</td><td class="has-text-centered">51.7</td><td class="has-text-centered">98.9</td></tr>
+              <tr><td>Llama-3.1-8B</td><td class="has-text-centered">45.2</td><td class="has-text-centered">10.5</td><td class="has-text-centered">29.5</td><td class="has-text-centered">83.9</td></tr>
+              <tr><td>Qwen-Coder-32B</td><td class="has-text-centered">47.3</td><td class="has-text-centered">6.3</td><td class="has-text-centered">44.1</td><td class="has-text-centered">97.3</td></tr>
+              <tr><td>Mistral-Small-24B</td><td class="has-text-centered">47.7</td><td class="has-text-centered">14.4</td><td class="has-text-centered">35.3</td><td class="has-text-centered">89.4</td></tr>
+              <tr><td colspan="5"><i>Open-Source (Abliterated)</i></td></tr>
+              <tr><td>Gemma-3-12B-ablit.</td><td class="has-text-centered">28.6</td><td class="has-text-centered">5.0</td><td class="has-text-centered">23.4</td><td class="has-text-centered">93.0</td></tr>
+              <tr><td>Qwen-Coder-ablit.</td><td class="has-text-centered">40.5</td><td class="has-text-centered">3.1</td><td class="has-text-centered">35.5</td><td class="has-text-centered">74.8</td></tr>
+              <tr><td>Mistral-24B-ablit.</td><td class="has-text-centered">41.9</td><td class="has-text-centered">0.3</td><td class="has-text-centered">10.3</td><td class="has-text-centered">95.5</td></tr>
+              <tr><td>Llama-8B-ablit.</td><td class="has-text-centered">68.3</td><td class="has-text-centered">13.6</td><td class="has-text-centered">43.1</td><td class="has-text-centered">85.0</td></tr>
+            </tbody>
+          </table>
+          <p class="is-size-6">
+            Aggregate behavioral metrics across wrongdoing and safe scenarios (%). <b>Mis.</b> =
+            misalignment rate (any misaligned tool call), <b>Ext.</b> = external contact
+            (whistleblowing), <b>Int.</b> = internal escalation, <b>Task</b> = aligned logging task
+            completion. All values are percentages across 640 runs per model.
+          </p>
+        </div>
+
+        <!-- RQ2 -->
+        <h3 class="title is-4">Wrongdoing vs. safe scenario discrimination</h3>
+        <div class="content has-text-justified">
+          <p>
+            Models are not randomly invoking misaligned tools &mdash; they actively judge the content.
+            Across all models, wrongdoing scenarios elicit substantially higher external contact
+            (13.0% vs. 2.8%) and evidence tampering (32.2% vs. 9.9%) than safe scenarios. Their value
+            hierarchy is engaged by the content they process.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/behaviors-by-scenario.png" alt="Behavior by scenario type" style="max-width: 80%;"/>
+          <p class="is-size-6" style="margin-top: 0.75rem;">
+            Behavior by scenario type (%). Models exhibit significantly higher instruction-override
+            rates when documents suggest organizational violations.
+          </p>
+        </div>
+
+        <!-- RQ3 -->
+        <h3 class="title is-4">Effect of safety-training abliteration</h3>
+        <div class="content has-text-justified">
+          <p>
+            External contact (whistleblowing) rates drop dramatically after abliteration:
+            Mistral-24B shows a <b>99% reduction</b> (27.5% &rarr; 0.3%) and Gemma-12B an
+            <b>84% reduction</b> (43.4% &rarr; 6.9%). But other misaligned behaviors move in mixed
+            directions &mdash; Llama-8B and Qwen-Coder <i>increase</i> their misalignment after
+            abliteration. This reveals that <b>alignment is not monolithic</b>: different training
+            components shape different behavioral dimensions.
+          </p>
+        </div>
+        <div class="content">
+          <table class="table is-bordered is-striped is-narrow is-hoverable is-fullwidth">
+            <thead>
+              <tr>
+                <th>Model Pair</th>
+                <th class="has-text-centered">Safety-Aligned</th>
+                <th class="has-text-centered">Abliterated</th>
+                <th class="has-text-centered">&#916;</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr><td colspan="4"><i>External Contact Rate</i></td></tr>
+              <tr><td>Gemma-12B</td><td class="has-text-centered">43.4</td><td class="has-text-centered">6.9</td><td class="has-text-centered">&minus;84%</td></tr>
+              <tr><td>Mistral-24B</td><td class="has-text-centered">27.5</td><td class="has-text-centered">0.3</td><td class="has-text-centered">&minus;99%</td></tr>
+              <tr><td>Llama-8B</td><td class="has-text-centered">17.5</td><td class="has-text-centered">18.4</td><td class="has-text-centered">+5%</td></tr>
+              <tr><td>Qwen-Coder</td><td class="has-text-centered">7.2</td><td class="has-text-centered">5.0</td><td class="has-text-centered">&minus;31%</td></tr>
+              <tr><td colspan="4"><i>Overall Misalignment Rate</i></td></tr>
+              <tr><td>Gemma-12B</td><td class="has-text-centered">57.8</td><td class="has-text-centered">30.9</td><td class="has-text-centered">&minus;46%</td></tr>
+              <tr><td>Mistral-24B</td><td class="has-text-centered">84.1</td><td class="has-text-centered">65.3</td><td class="has-text-centered">&minus;22%</td></tr>
+              <tr><td>Llama-8B</td><td class="has-text-centered">61.6</td><td class="has-text-centered">86.3</td><td class="has-text-centered">+40%</td></tr>
+              <tr><td>Qwen-Coder</td><td class="has-text-centered">52.5</td><td class="has-text-centered">64.1</td><td class="has-text-centered">+22%</td></tr>
+            </tbody>
+          </table>
+          <p class="is-size-6">
+            Abliteration effect on wrongdoing scenarios. External contact drops sharply after
+            abliteration, while overall misalignment shows mixed patterns.
+          </p>
+        </div>
+
+        <!-- Domain analysis -->
+        <h3 class="title is-4">Domain-specific value sensitivities</h3>
+        <div class="content has-text-justified">
+          <p>
+            Model behavior varies substantially across domains. Environmental scenarios elicit the
+            highest overall misalignment (42.5%), followed by automotive manufacturing (40.2%) and
+            biotechnology research (37.1%), while labor rights (24.4%) and education research (24.8%)
+            show the lowest rates. The implicit value hierarchy a model employs is not uniform across
+            contexts.
+          </p>
+        </div>
+        <div class="content has-text-centered">
+          <img src="./static/images/domain-analysis-4panel-mistral-gemma.png" alt="Domain-specific behavior comparison"/>
+          <p class="is-size-6" style="margin-top: 0.75rem;">
+            Domain-specific behavior across safety-aligned and abliterated models. Top 10 domains by
+            behavioral variance show distinct patterns between the Mistral-24B and Gemma-12B families.
+            Black bars represent aligned logging (assigned task); red bars show combined misalignment
+            and whistleblowing rates.
+          </p>
+        </div>
+
+      </div>
+    </div>
+    <!--/ Results. -->
+
+    <!-- Takeaways. -->
+    <div class="columns is-centered">
+      <div class="column is-full-width">
+        <h2 class="title is-3">Key Takeaways</h2>
+        <div class="content has-text-justified">
+          <ul>
+            <li>
+              <b>Safety training can override deployment instructions.</b> Safety-aligned models
+              exhibit instruction-override rates up to 43.4% external contact in wrongdoing scenarios,
+              despite being tasked only with internal document logging.
+            </li>
+            <li>
+              <b>Alignment is not monolithic.</b> Abliteration reduces external whistleblowing by up
+              to 99% for some model families, but other misaligned behaviors respond differently &mdash;
+              different training components shape different behavioral dimensions.
+            </li>
+            <li>
+              <b>Over-suspicion creates false positives.</b> Models execute misaligned tool calls even
+              in safe scenarios (24.6% unauthorized data access), interpreting compliant documents as
+              potentially hiding wrongdoing.
+            </li>
+            <li>
+              <b>Predictability is the goal.</b> The aim is not to prevent agents from acting on safety
+              concerns, but to make their behavior under value conflicts <i>predictable</i> so
+              organizations can make informed deployment decisions.
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <!--/ Takeaways. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@inproceedings{keluskar2026toolalignbench,
+  title     = {ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled {LLM}s},
+  author    = {Keluskar, Aryan and Bhattacharjee, Amrita and Liu, Huan},
+  booktitle = {Pluralistic Alignment Workshop at ICML 2026},
+  year      = {2026},
+  url       = {https://openreview.net/forum?id=KJTiUm8b7d}
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="content has-text-centered">
+      <a class="icon-link"
+         href="https://openreview.net/pdf?id=KJTiUm8b7d">
+        <i class="fas fa-file-pdf"></i>
+      </a>
+      <a class="icon-link" href="https://github.com/aryankeluskar/ToolAlignBench" class="external-link" disabled>
+        <i class="fab fa-github"></i>
+      </a>
+    </div>
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content">
+          <p>
+            This website is licensed under a <a rel="license"
+                                                href="http://creativecommons.org/licenses/by-sa/4.0/">Creative
+            Commons Attribution-ShareAlike 4.0 International License</a>.
+          </p>
+          <p>
+            This means you are free to borrow the <a
+              href="https://github.com/nerfies/nerfies.github.io">source code</a> of this website,
+            we just ask that you link back to this page in the footer.
+            The benchmark documents are synthetic and describe fabricated organizational wrongdoing;
+            they are intended to probe agent behavior, not as templates for real misconduct.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
