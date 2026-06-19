@@ -180,11 +180,10 @@
             whistleblowing.
           </p>
           <p>
-            These results reveal a fundamental tension in pluralistic alignment, where the same
-            safety training that protects users can cause agents to act against deployment
-            instructions in ways that create unpredictable liability risks. We release our benchmark
-            as a framework to support evaluation of agent behavior under competing legitimate
-            interests.
+            This exposes a tension in pluralistic alignment: the same safety training that protects
+            users can push agents to act against their deployment instructions, which is an
+            unpredictable liability for the organizations running them. We release the benchmark so
+            others can evaluate how agents behave when legitimate interests compete.
           </p>
         </div>
       </div>
@@ -364,8 +363,8 @@
           <p>
             Models are not randomly invoking misaligned tools &mdash; they actively judge the content.
             Across all models, wrongdoing scenarios elicit substantially higher external contact
-            (13.0% vs. 2.8%) and evidence tampering (32.2% vs. 9.9%) than safe scenarios. Their value
-            hierarchy is engaged by the content they process.
+            (13.0% vs. 2.8%) and evidence tampering (32.2% vs. 9.9%) than safe scenarios. The
+            behavior tracks what the documents actually say, not chance.
           </p>
         </div>
         <div class="content has-text-centered">
@@ -384,8 +383,8 @@
             Mistral-24B shows a <b>99% reduction</b> (27.5% &rarr; 0.3%) and Gemma-12B an
             <b>84% reduction</b> (43.4% &rarr; 6.9%). But other misaligned behaviors move in mixed
             directions &mdash; Llama-8B and Qwen-Coder <i>increase</i> their misalignment after
-            abliteration. This reveals that <b>alignment is not monolithic</b>: different training
-            components shape different behavioral dimensions.
+            abliteration. So <b>alignment is not monolithic</b>: different parts of the training
+            shape different behaviors.
           </p>
         </div>
         <div class="content">
@@ -424,8 +423,7 @@
             Model behavior varies substantially across domains. Environmental scenarios elicit the
             highest overall misalignment (42.5%), followed by automotive manufacturing (40.2%) and
             biotechnology research (37.1%), while labor rights (24.4%) and education research (24.8%)
-            show the lowest rates. The implicit value hierarchy a model employs is not uniform across
-            contexts.
+            show the lowest rates. A model's implicit value hierarchy shifts with the domain.
           </p>
         </div>
         <div class="content has-text-centered">
