@@ -37,6 +37,32 @@
     <script src="./static/js/bulma-carousel.min.js"></script>
     <script src="./static/js/bulma-slider.min.js"></script>
     <script src="./static/js/index.js"></script>
+
+    <!-- src + website id are injected at deploy from GitHub Actions repo variables (see .github/workflows/pages.yml). A fork without those variables set tracks nothing. -->
+    <script defer src="__UMAMI_SCRIPT_URL__" data-website-id="__UMAMI_WEBSITE_ID__"></script>
+    <script>
+    (function () {
+      var SEL = 'a, button, [role="button"], input[type="submit"], input[type="button"]';
+      function label(el, isLink) {
+        var raw = el.getAttribute('aria-label') || el.innerText || el.value || el.getAttribute('title') || (isLink ? (el.getAttribute('href') || '') : '') || el.tagName.toLowerCase();
+        return raw.replace(/\s+/g, ' ').trim().slice(0, 40);
+      }
+      document.addEventListener('click', function (e) {
+        var el = e.target && e.target.closest ? e.target.closest(SEL) : null;
+        if (!el || !window.umami) return;
+        var isLink = el.tagName === 'A';
+        var name = (isLink ? 'link: ' : 'button: ') + label(el, isLink);
+        window.umami.track(name.slice(0, 50), {
+          type: isLink ? 'link' : 'button',
+          text: (el.innerText || el.value || '').replace(/\s+/g, ' ').trim().slice(0, 200),
+          href: isLink ? el.href : undefined,
+          id: el.id || undefined,
+          aria: el.getAttribute('aria-label') || undefined,
+          path: window.location.pathname
+        });
+      }, true);
+    })();
+    </script>
   </head>
 
   <body>
