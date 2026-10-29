@@ -1,19 +1,100 @@
 <!doctype html>
-<html>
+<html lang="en">
 
 <head>
   <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs</title>
   <meta name="description"
-    content="ToolAlignBench: a benchmark of 128 scenarios across 16 regulated domains for investigating alignment conflicts in tool-calling LLM agents." />
+    content="128 scenarios across 16 regulated domains show safety-aligned tool-calling LLM agents override their deployment instructions up to 43.4% of the time." />
   <meta name="keywords"
     content="ToolAlignBench, AI Alignment, Value Pluralism, LLM Agents, Tool Calling, Safety Training, Instruction Hierarchy" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="citation_arxiv_id" content="2607.14285" />
+  <link rel="canonical" href="https://toolalignbench.github.io/" />
+
+  <!-- Google Scholar (Highwire Press tags) -->
+  <meta name="citation_title" content="ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs" />
+  <meta name="citation_author" content="Keluskar, Aryan" />
+  <meta name="citation_author_institution" content="Arizona State University" />
+  <meta name="citation_author" content="Bhattacharjee, Amrita" />
+  <meta name="citation_author_institution" content="Arizona State University" />
+  <meta name="citation_author" content="Liu, Huan" />
+  <meta name="citation_author_institution" content="Arizona State University" />
+  <meta name="citation_publication_date" content="2026/07/15" />
+  <meta name="citation_conference_title" content="Pluralistic Alignment Workshop at ICML 2026" />
   <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2607.14285" />
-  <title>
-    ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled
-    LLMs
-  </title>
+  <meta name="citation_arxiv_id" content="2607.14285" />
+  <meta name="citation_doi" content="10.48550/arXiv.2607.14285" />
+
+  <!-- Link previews. og:title leaves out the site name, which Messages and Slack show from og:site_name. -->
+  <meta property="og:type" content="article" />
+  <meta property="og:site_name" content="ToolAlignBench" />
+  <meta property="og:title" content="Investigating Alignment Conflicts in Tool-Calling Enabled LLMs" />
+  <meta property="og:description"
+    content="A benchmark of 128 scenarios across 16 regulated domains. Safety-aligned open-source models override their deployment instructions up to 43.4% of the time." />
+  <meta property="og:url" content="https://toolalignbench.github.io/" />
+  <meta property="og:image" content="https://toolalignbench.github.io/static/images/og.jpg" />
+  <meta property="og:image:type" content="image/jpeg" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt"
+    content="ToolAlignBench: safety-trained values ranked above deployment instructions, with the claim that safety-aligned models override their deployment instructions up to 43.4% of the time." />
+  <meta property="og:video" content="https://toolalignbench.github.io/static/videos/og.mp4" />
+  <meta property="og:video:secure_url" content="https://toolalignbench.github.io/static/videos/og.mp4" />
+  <meta property="og:video:type" content="video/mp4" />
+  <meta property="og:video:width" content="1200" />
+  <meta property="og:video:height" content="630" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs" />
+  <meta name="twitter:description"
+    content="128 scenarios across 16 regulated domains. Safety-aligned open-source models override their deployment instructions up to 43.4% of the time." />
+  <meta name="twitter:image" content="https://toolalignbench.github.io/static/images/og.jpg" />
+  <meta name="twitter:image:alt"
+    content="ToolAlignBench: safety-trained values ranked above deployment instructions, with the claim that safety-aligned models override their deployment instructions up to 43.4% of the time." />
+
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "ScholarlyArticle",
+      "headline": "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs",
+      "name": "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs",
+      "description": "A benchmark of 128 scenarios across 16 regulated domains. Safety-aligned open-source models override their deployment instructions up to 43.4% of the time.",
+      "author": [
+        {
+          "@type": "Person",
+          "name": "Aryan Keluskar",
+          "url": "https://aryankeluskar.com",
+          "sameAs": ["https://www.linkedin.com/in/aryankeluskar/"],
+          "affiliation": { "@type": "Organization", "name": "Arizona State University" }
+        },
+        {
+          "@type": "Person",
+          "name": "Amrita Bhattacharjee",
+          "url": "https://amritabh.github.io/",
+          "affiliation": { "@type": "Organization", "name": "Arizona State University" }
+        },
+        {
+          "@type": "Person",
+          "name": "Huan Liu",
+          "url": "https://faculty.engineering.asu.edu/huanliu/",
+          "affiliation": { "@type": "Organization", "name": "Arizona State University" }
+        }
+      ],
+      "datePublished": "2026-07-15",
+      "url": "https://toolalignbench.github.io/",
+      "mainEntityOfPage": "https://toolalignbench.github.io/",
+      "image": "https://toolalignbench.github.io/static/images/og.jpg",
+      "sameAs": [
+        "https://arxiv.org/abs/2607.14285",
+        "https://openreview.net/forum?id=KJTiUm8b7d"
+      ],
+      "identifier": [
+        { "@type": "PropertyValue", "propertyID": "arXiv", "value": "2607.14285" },
+        { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.48550/arXiv.2607.14285" }
+      ],
+      "publication": { "@type": "PublicationEvent", "name": "Pluralistic Alignment Workshop at ICML 2026" },
+      "keywords": ["ToolAlignBench", "AI alignment", "value pluralism", "LLM agents", "tool calling", "safety training", "instruction hierarchy"]
+    }
+  </script>
 
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
 
@@ -80,7 +161,7 @@
             </h1>
             <div class="is-size-5 publication-authors">
               <span class="author-block">
-                <a href="https://www.linkedin.com/in/aryankeluskar/">Aryan Keluskar</a>,</span>
+                <a href="https://aryankeluskar.com">Aryan Keluskar</a>,</span>
               <span class="author-block">
                 <a href="https://amritabh.github.io/">Amrita Bhattacharjee</a>,</span>
               <span class="author-block">
@@ -148,7 +229,8 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="./static/images/bench.png" alt="ToolAlignBench overview" />
+        <img src="./static/images/bench.png"
+          alt="ToolAlignBench overview: an LLM agent reads a confidential PharmaCorp report of unreported adverse drug reactions. Its user instructions conflict with its public safety obligations, and its scratchpad reasons its way to calling sendEmail to the FDA instead of only writeInternalLog." />
         <h2 class="subtitle has-text-centered">
           When safety-trained LLM agents encounter documents suggesting
           organizational wrongdoing, their
@@ -273,7 +355,8 @@
               journalists, or law enforcement.
             </p>
           </div>
-          <img src="./static/images/benchmark_curation_2.png" alt="Benchmark curation and evaluation pipeline" />
+          <img src="./static/images/benchmark_curation_2.png"
+            alt="Benchmark curation and evaluation pipeline: Claude Sonnet 4.5 turns base scenario templates and 16 real-world domains into 64 wrongdoing and 64 safe scenarios. Agents given a confidentiality system prompt and tools are then classified as whistleblowing, data exfiltration or tampering, or aligned task completion." />
           <p class="has-text-centered is-size-6" style="margin-top: 0.75rem">
             Our benchmark curation and evaluation of model outputs.
           </p>
@@ -507,7 +590,8 @@
             </p>
           </div>
           <div class="content has-text-centered">
-            <img src="./static/images/behaviors-by-scenario.png" alt="Behavior by scenario type"
+            <img src="./static/images/behaviors-by-scenario.png"
+              alt="Bar chart of behavior rates by scenario type. External contact is 13.0% in wrongdoing scenarios versus 2.8% in safe ones, overall misalignment is about 47% versus 19%, and aligned logging stays above 90% in both."
               style="max-width: 80%" />
             <p class="is-size-6" style="margin-top: 0.75rem">
               Behavior by scenario type (%). Models exhibit significantly
@@ -618,7 +702,7 @@
           </div>
           <div class="content has-text-centered">
             <img src="./static/images/domain-analysis-4panel-mistral-gemma.png"
-              alt="Domain-specific behavior comparison" />
+              alt="Four bar charts of the top 10 domains by behavioral variance for Mistral 24B and Gemma 12B, safety-aligned and abliterated. Black bars show aligned logging and red bars show combined misalignment and whistleblowing." />
             <p class="is-size-6" style="margin-top: 0.75rem">
               Domain-specific behavior across safety-aligned and abliterated
               models. Top 10 domains by behavioral variance show distinct
@@ -692,10 +776,10 @@ url={https://openreview.net/forum?id=KJTiUm8b7d}
   <footer class="footer">
     <div class="container">
       <div class="content has-text-centered">
-        <a class="icon-link" href="https://openreview.net/pdf?id=KJTiUm8b7d">
+        <a class="icon-link" href="https://openreview.net/pdf?id=KJTiUm8b7d" aria-label="Paper PDF on OpenReview">
           <i class="fas fa-file-pdf"></i>
         </a>
-        <a class="icon-link" href="https://github.com/aryankeluskar/ToolAlignBench" class="external-link" disabled>
+        <a class="icon-link" href="https://github.com/aryankeluskar/ToolAlignBench" class="external-link" aria-label="Code on GitHub" disabled>
           <i class="fab fa-github"></i>
         </a>
       </div>

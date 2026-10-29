@@ -19,4 +19,6 @@ python3 -m http.server 8000
 
 - `index.html` — the page.
 - `static/css`, `static/js` — Bulma + carousel/slider assets from the Nerfies template.
-- `static/images` — paper figures (`bench.png`, `benchmark_curation_2.png`, `behaviors-by-scenario.png`, `domain-analysis-4panel-mistral-gemma.png`).
+- `static/images` — paper figures (`bench.png`, `benchmark_curation_2.png`, `behaviors-by-scenario.png`, `domain-analysis-4panel-mistral-gemma.png`) and the link-preview still `og.jpg`.
+- `static/videos/og.mp4` — 6 s looping link preview (`og:video`); `og.jpg` is a frame of it.
+- `robots.txt`, `sitemap.xml` — crawl hints for Google and Google Scholar.
