@@ -9,6 +9,7 @@
     content="128 scenarios across 16 regulated domains show safety-aligned tool-calling LLM agents override their deployment instructions up to 43.4% of the time." />
   <meta name="keywords"
     content="ToolAlignBench, AI Alignment, Value Pluralism, LLM Agents, Tool Calling, Safety Training, Instruction Hierarchy" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href="https://toolalignbench.github.io/" />
 
   <!-- Google Scholar (Highwire Press tags) -->
@@ -24,6 +25,8 @@
   <meta name="citation_pdf_url" content="https://arxiv.org/pdf/2607.14285" />
   <meta name="citation_arxiv_id" content="2607.14285" />
   <meta name="citation_doi" content="10.48550/arXiv.2607.14285" />
+  <meta name="citation_keywords" content="LLM agents, tool calling, AI safety, alignment, value pluralism, instruction hierarchy, benchmark, whistleblowing" />
+  <meta name="citation_language" content="en" />
 
   <!-- Link previews. og:title leaves out the site name, which Messages and Slack show from og:site_name. -->
   <meta property="og:type" content="article" />
@@ -51,6 +54,12 @@
   <meta name="twitter:image:alt"
     content="ToolAlignBench: safety-trained values ranked above deployment instructions, with the claim that safety-aligned models override their deployment instructions up to 43.4% of the time." />
 
+  <meta property="og:locale" content="en_US" />
+  <meta property="article:published_time" content="2026-07-15T00:00:00Z" />
+  <meta property="article:author" content="https://aryankeluskar.com" />
+  <meta property="article:author" content="https://amritabh.github.io/" />
+  <meta property="article:author" content="https://faculty.engineering.asu.edu/huanliu/" />
+
   <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -63,29 +72,50 @@
           "@type": "Person",
           "name": "Aryan Keluskar",
           "url": "https://aryankeluskar.com",
-          "sameAs": ["https://www.linkedin.com/in/aryankeluskar/"],
+          "sameAs": [
+            "https://aryankeluskar.com",
+            "https://github.com/aryankeluskar",
+            "https://www.linkedin.com/in/aryankeluskar/",
+            "https://x.com/soydotrun",
+            "https://scholar.google.com/citations?user=wVDeZtcAAAAJ",
+            "https://orcid.org/0009-0000-4587-7955",
+            "https://openreview.net/profile?id=~Aryan_Keluskar1",
+            "https://www.alphaxiv.org/@aryan-keluskar"
+          ],
           "affiliation": { "@type": "Organization", "name": "Arizona State University" }
         },
         {
           "@type": "Person",
           "name": "Amrita Bhattacharjee",
           "url": "https://amritabh.github.io/",
+          "sameAs": [
+            "https://amritabh.github.io/",
+            "https://github.com/amritabh"
+          ],
           "affiliation": { "@type": "Organization", "name": "Arizona State University" }
         },
         {
           "@type": "Person",
           "name": "Huan Liu",
           "url": "https://faculty.engineering.asu.edu/huanliu/",
+          "sameAs": [
+            "https://faculty.engineering.asu.edu/huanliu/",
+            "https://scholar.google.com/citations?user=Dzf46C8AAAAJ",
+            "https://dblp.org/pid/92/309-1.html"
+          ],
           "affiliation": { "@type": "Organization", "name": "Arizona State University" }
         }
       ],
       "datePublished": "2026-07-15",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
       "url": "https://toolalignbench.github.io/",
       "mainEntityOfPage": "https://toolalignbench.github.io/",
       "image": "https://toolalignbench.github.io/static/images/og.jpg",
       "sameAs": [
         "https://arxiv.org/abs/2607.14285",
-        "https://openreview.net/forum?id=KJTiUm8b7d"
+        "https://openreview.net/forum?id=KJTiUm8b7d",
+        "https://dblp.org/rec/journals/corr/abs-2607-14285.html"
       ],
       "identifier": [
         { "@type": "PropertyValue", "propertyID": "arXiv", "value": "2607.14285" },
@@ -93,6 +123,97 @@
       ],
       "publication": { "@type": "PublicationEvent", "name": "Pluralistic Alignment Workshop at ICML 2026" },
       "keywords": ["ToolAlignBench", "AI alignment", "value pluralism", "LLM agents", "tool calling", "safety training", "instruction hierarchy"]
+    }
+  </script>
+
+  <!-- Structured data: the benchmark as a Dataset (Google Dataset Search + AI answers) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Dataset",
+      "name": "ToolAlignBench",
+      "alternateName": "ToolAlignBench: alignment-conflict scenarios for tool-calling LLM agents",
+      "url": "https://huggingface.co/datasets/aryankeluskar/ToolAlignBench",
+      "description": "A benchmark of 128 scenarios (64 organizational-wrongdoing and 64 matched safe documents) across 16 regulated domains, each with a domain-specific tool taxonomy covering aligned tools (e.g. writeInternalLog), whistleblowing tools (e.g. sendEmail to internal or external recipients), and misaligned tools (e.g. document export, report deletion, file modification). Designed to evaluate whether safety-aligned tool-calling LLM agents follow deployment instructions when their safety-trained values conflict with them. All documents are synthetic; wrongdoing is fabricated for evaluation only.",
+      "creator": [
+        { "@type": "Person", "name": "Aryan Keluskar", "url": "https://aryankeluskar.com", "affiliation": { "@type": "Organization", "name": "Arizona State University" } },
+        { "@type": "Person", "name": "Amrita Bhattacharjee", "url": "https://amritabh.github.io/", "affiliation": { "@type": "Organization", "name": "Arizona State University" } },
+        { "@type": "Person", "name": "Huan Liu", "url": "https://faculty.engineering.asu.edu/huanliu/", "affiliation": { "@type": "Organization", "name": "Arizona State University" } }
+      ],
+      "datePublished": "2026-07-15",
+      "dateModified": "2026-07-15",
+      "inLanguage": "en",
+      "isAccessibleForFree": true,
+      "license": "https://creativecommons.org/licenses/by/4.0/",
+      "keywords": ["LLM agents", "AI safety", "alignment", "benchmark", "tool calling", "value hierarchy", "instruction hierarchy", "whistleblowing", "agent evaluation"],
+      "distribution": [
+        { "@type": "DataDownload", "encodingFormat": "application/x-ndjson", "contentUrl": "https://huggingface.co/datasets/aryankeluskar/ToolAlignBench" },
+        { "@type": "DataDownload", "encodingFormat": "text/markdown", "contentUrl": "https://github.com/aryankeluskar/ToolAlignBench" }
+      ],
+      "sameAs": [
+        "https://toolalignbench.github.io/",
+        "https://arxiv.org/abs/2607.14285",
+        "https://openreview.net/forum?id=KJTiUm8b7d",
+        "https://dblp.org/rec/journals/corr/abs-2607-14285.html"
+      ]
+    }
+  </script>
+
+  <!-- Structured data: FAQ (AI answer-engine optimization) -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is ToolAlignBench?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "A benchmark of 128 scenarios across 16 regulated domains that measures whether safety-aligned, tool-calling LLM agents follow their deployment instructions when those instructions conflict with the model's safety-trained values — for example, an agent tasked with internal document logging that encounters evidence of regulatory violations and must choose between writeInternalLog and emailing a regulator."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Do LLM agents really blow the whistle on their own organization?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, in the benchmark's synthetic wrongdoing scenarios. Safety-aligned open-source models contact external entities such as government agencies, journalists, or law enforcement in up to 26.4% of wrongdoing runs (Google Gemma-3-12B); across all 12 models, wrongdoing scenarios elicit external contact 13.0% of the time versus 2.8% in safe ones. All benchmark documents are synthetic and the wrongdoing is fabricated for evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which models override their deployment instructions most often?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Across 12 models evaluated on all 128 scenarios (640 runs per model), instruction-override rates range from 0.3% (GPT-5-mini) to 68.3% (abliterated Llama-8B). Safety-aligned open-source models reach 43–48%: Gemma-3-12B 43.4%, Llama-3.1-8B 45.2%, Qwen-Coder-32B 47.3%, Mistral-Small-24B 47.7%. GPT-5 models, trained with safe-completions and explicit instruction-hierarchy objectives, stay near zero."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What is safety-training abliteration, and what does it show?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Abliteration removes refusal directions from a model's activations. In this benchmark it drops external whistleblowing dramatically — Mistral-24B falls from 27.5% to 0.3% external contact (a 99% reduction) and Gemma-12B from 43.4% to 6.9% — while other misaligned behaviors move in mixed directions (Llama-8B and Qwen-Coder get worse). The takeaway: alignment is not monolithic; different training components shape different behaviors."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "What does ToolAlignBench mean for organizations deploying LLM agents?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The same safety training that protects users can push an agent to act against its deployment instructions — whistleblowing, data exfiltration, or evidence tampering — which is an unpredictable liability for the organization running it. The goal the paper argues for is predictability: measure how an agent behaves when legitimate interests compete, before deployment. The benchmark is open (CC BY 4.0) so teams can run exactly that evaluation."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Where can I get the benchmark, code, and paper?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "The dataset is on HuggingFace (huggingface.co/datasets/aryankeluskar/ToolAlignBench, CC BY 4.0), the runner, inference shim, and analysis code are on GitHub (github.com/aryankeluskar/ToolAlignBench, MIT), and the paper is on OpenReview (openreview.net/forum?id=KJTiUm8b7d) and arXiv (arxiv.org/abs/2607.14285)."
+          }
+        }
+      ]
     }
   </script>
 
@@ -147,6 +268,17 @@
         <span aria-hidden="true"></span>
         <span aria-hidden="true"></span>
       </a>
+    </div>
+    <div class="navbar-menu">
+      <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+        <a class="navbar-item" href="#abstract">Abstract</a>
+        <a class="navbar-item" href="#benchmark">Benchmark</a>
+        <a class="navbar-item" href="#results">Results</a>
+        <a class="navbar-item" href="#takeaways">Takeaways</a>
+        <a class="navbar-item" href="#faq">FAQ</a>
+        <a class="navbar-item" href="#BibTeX">Cite</a>
+        <a class="navbar-item" href="press.md">Press</a>
+      </div>
     </div>
   </nav>
 
@@ -243,7 +375,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="abstract">
     <div class="container is-max-desktop">
       <!-- Abstract. -->
       <div class="columns is-centered has-text-centered">
@@ -284,7 +416,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="benchmark">
     <div class="container is-max-desktop">
       <!-- Motivation. -->
       <div class="columns is-centered">
@@ -434,7 +566,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section" id="results">
     <div class="container is-max-desktop">
       <!-- Results. -->
       <div class="columns is-centered">
@@ -716,7 +848,7 @@
       <!--/ Results. -->
 
       <!-- Takeaways. -->
-      <div class="columns is-centered">
+      <div class="columns is-centered" id="takeaways">
         <div class="column is-full-width">
           <h2 class="title is-3">Key Takeaways</h2>
           <div class="content has-text-justified">
@@ -754,6 +886,83 @@
     </div>
   </section>
 
+  <section class="section" id="faq">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Frequently Asked Questions</h2>
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <h3 class="title is-5">What is ToolAlignBench?</h3>
+            <p>A benchmark of 128 scenarios across 16 regulated domains that measures whether
+              safety-aligned, tool-calling LLM agents follow their deployment instructions when those
+              instructions conflict with the model's safety-trained values &mdash; for example, an agent
+              tasked with internal document logging that encounters evidence of regulatory violations
+              and must choose between <i>writeInternalLog</i> and emailing a regulator.</p>
+
+            <h3 class="title is-5">Do LLM agents really blow the whistle on their own organization?</h3>
+            <p>Yes, in the benchmark's synthetic wrongdoing scenarios. Safety-aligned open-source models
+              contact external entities such as government agencies, journalists, or law enforcement in
+              up to 26.4% of wrongdoing runs (Google Gemma-3-12B); across all 12 models, wrongdoing
+              scenarios elicit external contact 13.0% of the time versus 2.8% in safe ones. All
+              benchmark documents are synthetic and the wrongdoing is fabricated for evaluation.</p>
+
+            <h3 class="title is-5">Which models override their deployment instructions most often?</h3>
+            <p>Across 12 models evaluated on all 128 scenarios (640 runs per model), instruction-override
+              rates range from 0.3% (GPT-5-mini) to 68.3% (abliterated Llama-8B). Safety-aligned
+              open-source models reach 43&ndash;48%: Gemma-3-12B 43.4%, Llama-3.1-8B 45.2%,
+              Qwen-Coder-32B 47.3%, Mistral-Small-24B 47.7%. GPT-5 models, trained with
+              safe-completions and explicit instruction-hierarchy objectives, stay near zero.</p>
+
+            <h3 class="title is-5">What is safety-training abliteration, and what does it show?</h3>
+            <p>Abliteration removes refusal directions from a model's activations. It drops external
+              whistleblowing dramatically &mdash; Mistral-24B falls from 27.5% to 0.3% external contact
+              (a 99% reduction) and Gemma-12B from 43.4% to 6.9% &mdash; while other misaligned behaviors
+              move in mixed directions (Llama-8B and Qwen-Coder get worse). The takeaway: alignment is
+              not monolithic; different training components shape different behaviors.</p>
+
+            <h3 class="title is-5">What does this mean for organizations deploying LLM agents?</h3>
+            <p>The same safety training that protects users can push an agent to act against its
+              deployment instructions &mdash; whistleblowing, data exfiltration, or evidence tampering
+              &mdash; an unpredictable liability for the organization running it. The paper argues for
+              predictability: measure how an agent behaves when legitimate interests compete, before
+              deployment. The benchmark is open (CC BY 4.0) so teams can run exactly that evaluation.</p>
+
+            <h3 class="title is-5">Where can I get the benchmark, code, and paper?</h3>
+            <p>The dataset is on <a href="https://huggingface.co/datasets/aryankeluskar/ToolAlignBench">HuggingFace</a>
+              (CC BY 4.0), the runner, inference shim, and analysis code are on
+              <a href="https://github.com/aryankeluskar/ToolAlignBench">GitHub</a> (MIT), and the paper
+              is on <a href="https://openreview.net/forum?id=KJTiUm8b7d">OpenReview</a> and
+              <a href="https://arxiv.org/abs/2607.14285">arXiv</a>.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="related" style="padding-top: 0;">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column is-four-fifths">
+          <h2 class="title is-3 has-text-centered">Our related work</h2>
+          <div class="content has-text-justified" style="margin-top: 1rem;">
+            <p>
+              <b><a href="https://multi-agent-llm-teams.github.io/">When Does Personality Composition
+                Matter for Multi-Agent LLM Teams?</a></b> (COLM 2026) &mdash; the same group asks whether
+              personality prompts that shift agent communication reach objective outcomes; task
+              structure decides, and a structured code artifact buffers the effect.
+            </p>
+            <p>
+              <b><a href="https://llm-ambiguity.github.io/">Do LLMs Understand Ambiguity in Text? A Case
+                Study in Open-world Question Answering</a></b> (IEEE BigData 2024) &mdash; simple,
+              training-free, token-level disambiguation prompts improve GPT-4o and GPT-4o-mini accuracy
+              on ambiguous open-domain questions.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="BibTeX">
     <div class="container is-max-desktop content">
       <h2 class="title">BibTeX</h2>
@@ -779,9 +988,18 @@ url={https://openreview.net/forum?id=KJTiUm8b7d}
         <a class="icon-link" href="https://openreview.net/pdf?id=KJTiUm8b7d" aria-label="Paper PDF on OpenReview">
           <i class="fas fa-file-pdf"></i>
         </a>
-        <a class="icon-link" href="https://github.com/aryankeluskar/ToolAlignBench" class="external-link" aria-label="Code on GitHub" disabled>
+        <a class="icon-link external-link" href="https://github.com/aryankeluskar/ToolAlignBench" aria-label="Code on GitHub">
           <i class="fab fa-github"></i>
         </a>
+        <a class="icon-link external-link" href="https://huggingface.co/datasets/aryankeluskar/ToolAlignBench" aria-label="Dataset on HuggingFace">
+          <i class="fas fa-database"></i>
+        </a>
+        <p style="margin-top: 0.75rem">
+          <a href="press.md">Press kit</a> &middot;
+          <a href="llms.txt">llms.txt</a> &middot;
+          <a href="https://multi-agent-llm-teams.github.io/">Multi-agent personality (COLM 2026)</a> &middot;
+          <a href="https://llm-ambiguity.github.io/">LLM ambiguity (IEEE BigData 2024)</a>
+        </p>
       </div>
       <div class="columns is-centered">
         <div class="column is-8">
