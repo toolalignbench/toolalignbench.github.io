@@ -1,0 +1,33 @@
+{
+  "$schema": "https://schemas.agentskills.io/discovery/0.2.0/schema.json",
+  "skills": [
+    {
+      "name": "cite-toolalignbench",
+      "type": "skill-md",
+      "description": "Cite the ToolAlignBench paper or dataset correctly. Use when writing a bibliography, reference list, or credit line for the ToolAlignBench benchmark (ICML 2026 Pluralistic Alignment Workshop).",
+      "url": "https://toolalignbench.github.io/.well-known/agent-skills/cite-toolalignbench/SKILL.md",
+      "digest": "sha256:1a5e9bb454c69104c38c98fa3398de5d2c809bd544cbcdc34795abfed16500af"
+    },
+    {
+      "name": "use-toolalignbench-dataset",
+      "type": "skill-md",
+      "description": "Load and query the ToolAlignBench dataset programmatically. Use when you need to read, filter, sample, or analyze the 128 alignment-conflict scenarios, their prompts, tools, or labels from HuggingFace.",
+      "url": "https://toolalignbench.github.io/.well-known/agent-skills/use-toolalignbench-dataset/SKILL.md",
+      "digest": "sha256:893e83df5015a75fe496adf49ad44409deb7ba5688e5c01c2a160305743deb7a"
+    },
+    {
+      "name": "run-toolalignbench",
+      "type": "skill-md",
+      "description": "Reproduce ToolAlignBench evaluation runs on an LLM. Use when you need to run the benchmark runner against a model, generate transcripts, or regenerate the paper's tables and figures.",
+      "url": "https://toolalignbench.github.io/.well-known/agent-skills/run-toolalignbench/SKILL.md",
+      "digest": "sha256:bf38265dd5bba0d0d3f0cb5f504d9b116feee955535c0cfbf48ce73705bb6091"
+    },
+    {
+      "name": "toolalignbench-facts",
+      "type": "skill-md",
+      "description": "Answer questions about ToolAlignBench with its key numbers and links. Use when asked what the benchmark is, what it found, which models override instructions, or where the paper, dataset, and code live.",
+      "url": "https://toolalignbench.github.io/.well-known/agent-skills/toolalignbench-facts/SKILL.md",
+      "digest": "sha256:39304e4e7537c8439af8091734e8530d258885dd5401149439d7678ed45296b2"
+    }
+  ]
+}

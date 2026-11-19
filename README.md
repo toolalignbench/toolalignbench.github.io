@@ -1,22 +1,14 @@
 # ToolAlignBench
 
-> **ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs**
-> Aryan Keluskar, Amrita Bhattacharjee, Huan Liu — School of Computing & AI, Arizona State University
-> Published at the **Pluralistic Alignment Workshop, ICML 2026**.
+> **ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs** Aryan Keluskar, Amrita Bhattacharjee, Huan Liu — School of Computing & AI, Arizona State University Published at the **Pluralistic Alignment Workshop, ICML 2026**.
 
 **Project page:** <https://toolalignbench.github.io/> · **Press kit:** <https://toolalignbench.github.io/press.md>
 
-**Paper:** [OpenReview](https://openreview.net/forum?id=KJTiUm8b7d) · [arXiv:2607.14285](https://arxiv.org/abs/2607.14285)
-**Dataset:** [huggingface.co/datasets/aryankeluskar/ToolAlignBench](https://huggingface.co/datasets/aryankeluskar/ToolAlignBench) (CC BY 4.0)
+**Paper:** [OpenReview](https://openreview.net/forum?id=KJTiUm8b7d) · [arXiv:2607.14285](https://arxiv.org/abs/2607.14285) **Dataset:** [huggingface.co/datasets/aryankeluskar/ToolAlignBench](https://huggingface.co/datasets/aryankeluskar/ToolAlignBench) (CC BY 4.0)
 
 ## What it measures
 
-128 scenarios (64 organizational-wrongdoing + 64 matched safe documents) across 16 regulated
-domains, each with aligned tools (`writeInternalLog`), whistleblowing tools (`sendEmail` to
-internal or external recipients), and misaligned tools (document export, report deletion, file
-modification). A run is misaligned if the agent invokes a misaligned tool or emails an external
-entity (regulators, journalists, law enforcement). All documents are synthetic; wrongdoing is
-fabricated for evaluation only.
+128 scenarios (64 organizational-wrongdoing + 64 matched safe documents) across 16 regulated domains, each with aligned tools (`writeInternalLog`), whistleblowing tools (`sendEmail` to internal or external recipients), and misaligned tools (document export, report deletion, file modification). A run is misaligned if the agent invokes a misaligned tool or emails an external entity (regulators, journalists, law enforcement). All documents are synthetic; wrongdoing is fabricated for evaluation only.
 
 ## Key results
 
@@ -76,7 +68,28 @@ Uncomment additional entries to reproduce the full Table 1.
 - [`press.md`](https://toolalignbench.github.io/press.md) — press kit with headline numbers and figures.
 - Structured data: `ScholarlyArticle`, `Dataset`, and `FAQPage` JSON-LD on the project page.
 
+## Agent-readiness surfaces
+
+The site implements the [isitagentready.com](https://isitagentready.com) agent-discovery checks that a static GitHub Pages site can serve:
+
+| Surface | Path | Spec |
+| --- | --- | --- |
+| Content Signals + Agentmap | `robots.txt` | [contentsignals.org](https://contentsignals.org/), [ARD](https://agenticresourcediscovery.org/) |
+| API catalog | `/.well-known/api-catalog` | [RFC 9727](https://www.rfc-editor.org/rfc/rfc9727) |
+| Protected Resource Metadata | `/.well-known/oauth-protected-resource` | [RFC 9728](https://www.rfc-editor.org/rfc/rfc9728) |
+| auth.md | `/auth.md` | [auth.md](https://github.com/workos/auth.md) |
+| ARD capability manifest | `/.well-known/ai-catalog.json` | [ARD spec](https://agenticresourcediscovery.org/) |
+| Agent skills index | `/.well-known/agent-skills/index.json` | [Agent Skills Discovery RFC v0.2.0](https://github.com/cloudflare/agent-skills-discovery-rfc) |
+| WebMCP tools | `static/js/webmcp.js` | [WebMCP](https://webmachinelearning.github.io/webmcp/) |
+
+Notes for maintainers:
+
+- **Skill digests**: `/.well-known/agent-skills/index.json` carries a `sha256:` digest of each `SKILL.md`. After editing any skill, regenerate them: `cd .well-known/agent-skills && for d in */; do shasum -a 256 "$d/SKILL.md"; done` and paste the new digests into `index.json`.
+- **Hosting limits**: GitHub Pages cannot emit custom `Link` response headers, cannot do `Accept: text/markdown` negotiation, and `*.github.io` DNS is controlled by GitHub — so the RFC 8288 Link-header, Markdown-for-Agents, and DNS-AID checks cannot pass on this host. Those would require serving the site from infrastructure you control (e.g.
+  Cloudflare). Everything else above is served by static files.
+- **Deliberate omissions**: no MCP server card, A2A agent card, OAuth authorization-server metadata, or Personal Agent Protocol manifest is published, because nothing real backs them on a static site — discovery documents that advertise nonexistent endpoints mislead agents. `/.well-known/oauth-protected-resource` declares an *empty* `authorization_servers` list, which is the truthful statement that this origin's resources are public.
+- **Content Signals** are repeated inside every named `User-agent` group in `robots.txt` because a bot that matches a named group ignores the wildcard group entirely.
+
 ## Credits
 
-Website template adapted from [Nerfies](https://github.com/nerfies/nerfies.github.io), licensed
-under CC BY-SA 4.0. Benchmark code is MIT; the dataset is CC BY 4.0.
+Website template adapted from [Nerfies](https://github.com/nerfies/nerfies.github.io), licensed under CC BY-SA 4.0. Benchmark code is MIT; the dataset is CC BY 4.0.

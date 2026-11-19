@@ -1,0 +1,4 @@
+Contact: mailto:contact@aryankeluskar.com
+Expires: 2027-12-31T23:59:00.000Z
+Preferred-Languages: en
+Canonical: https://toolalignbench.github.io/.well-known/security.txt

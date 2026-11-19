@@ -2,75 +2,116 @@
 # Policy: fully open. This is a research paper and benchmark project page;
 # search engines, AI answer engines, and AI training crawlers are all welcome
 # to index, quote, and cite it.
+#
+# Content Signals (https://contentsignals.org/): this content may be used for
+# search indexing, real-time AI grounding, and AI training. This matches the
+# site's existing open license posture (dataset CC BY 4.0, code MIT).
+# NOTE: a bot that matches a named User-agent group ignores the wildcard group
+# entirely, so the Content-Signal line is repeated inside every group below.
 
 User-agent: *
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 # --- Search + answer engines (AI visibility) ---
 User-agent: Googlebot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: bingbot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Applebot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Bravebot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: DuckAssistBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: OAI-SearchBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Claude-SearchBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: PerplexityBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: YouBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Amzn-SearchBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: meta-webindexer
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: MistralAI-Index
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 # --- User-triggered fetchers (live answers about this paper) ---
 User-agent: ChatGPT-User
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Claude-User
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Perplexity-User
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: MistralAI-User
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: meta-externalfetcher
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Amzn-User
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 # --- AI training crawlers: allowed, deliberately ---
 # This work is released to be read, used, and cited.
 User-agent: GPTBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: ClaudeBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Google-Extended
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Applebot-Extended
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: CCBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: meta-externalagent
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Amazonbot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: MistralAI-Training
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: AI2Bot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: Bytespider
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: cohere-ai
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 User-agent: KimiBot
 Allow: /
+Content-Signal: search=yes, ai-input=yes, ai-train=yes
 
 Sitemap: https://toolalignbench.github.io/sitemap.xml
+
+# Agentic Resource Discovery: points agents at this site's capability manifest
+# (dataset, code, paper, skills, APIs). Spec: https://agenticresourcediscovery.org/
+Agentmap: https://toolalignbench.github.io/.well-known/ai-catalog.json

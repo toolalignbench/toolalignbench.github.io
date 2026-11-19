@@ -1,0 +1,8 @@
+{
+  "resource": "https://toolalignbench.github.io/",
+  "authorization_servers": [],
+  "scopes_supported": [],
+  "bearer_methods_supported": ["header"],
+  "resource_documentation": "https://toolalignbench.github.io/auth.md",
+  "$comment": "ToolAlignBench is a fully public static research site: no endpoint requires authentication, so no authorization servers are listed and no scopes are defined. Agents need no credentials. See https://toolalignbench.github.io/auth.md. Spec: RFC 9728."
+}

@@ -1,0 +1,94 @@
+{
+  "$comment": "RFC 9727 API Catalog for ToolAlignBench. Every entry is a real, public, machine-readable API surface for this research project. Spec: https://www.rfc-editor.org/rfc/rfc9727",
+  "linkset": [
+    {
+      "anchor": "https://toolalignbench.github.io/",
+      "service-desc": [
+        {
+          "href": "https://toolalignbench.github.io/.well-known/ai-catalog.json",
+          "type": "application/json",
+          "title": "ToolAlignBench ARD capability manifest (machine-readable inventory of all resources)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://toolalignbench.github.io/llms.txt",
+          "type": "text/plain",
+          "title": "llms.txt — curated machine-readable summary of the site"
+        }
+      ],
+      "describedby": [
+        {
+          "href": "https://toolalignbench.github.io/auth.md",
+          "type": "text/markdown",
+          "title": "auth.md — access and authentication information for agents"
+        }
+      ]
+    },
+    {
+      "anchor": "https://huggingface.co/datasets/aryankeluskar/ToolAlignBench",
+      "service-desc": [
+        {
+          "href": "https://huggingface.co/api/datasets/aryankeluskar/ToolAlignBench",
+          "type": "application/json",
+          "title": "HuggingFace Datasets API — ToolAlignBench dataset metadata (splits, files, license)"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://huggingface.co/docs/datasets",
+          "type": "text/html",
+          "title": "HuggingFace Datasets documentation"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://datasets-server.huggingface.co/valid",
+          "type": "application/json",
+          "title": "HuggingFace datasets-server health listing"
+        }
+      ]
+    },
+    {
+      "anchor": "https://github.com/aryankeluskar/ToolAlignBench",
+      "service-desc": [
+        {
+          "href": "https://api.github.com/repos/aryankeluskar/ToolAlignBench",
+          "type": "application/json",
+          "title": "GitHub REST API — ToolAlignBench repository metadata"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://github.com/aryankeluskar/ToolAlignBench#readme",
+          "type": "text/html",
+          "title": "ToolAlignBench repository README (setup, reproduction, layout)"
+        }
+      ],
+      "status": [
+        {
+          "href": "https://api.github.com/repos/aryankeluskar/ToolAlignBench/commits?per_page=1",
+          "type": "application/json",
+          "title": "Latest commit (repository liveness)"
+        }
+      ]
+    },
+    {
+      "anchor": "https://arxiv.org/abs/2607.14285",
+      "service-desc": [
+        {
+          "href": "https://export.arxiv.org/api/query?id_list=2607.14285",
+          "type": "application/atom+xml",
+          "title": "arXiv Atom API — machine-readable metadata for the paper"
+        }
+      ],
+      "service-doc": [
+        {
+          "href": "https://arxiv.org/abs/2607.14285",
+          "type": "text/html",
+          "title": "arXiv abstract page (ToolAlignBench)"
+        }
+      ]
+    }
+  ]
+}
