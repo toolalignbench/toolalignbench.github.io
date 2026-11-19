@@ -71,6 +71,7 @@ Uncomment additional entries to reproduce the full Table 1.
 - [`press.md`](https://toolalignbench.github.io/press.md) — press kit with headline numbers and figures.
 - Structured data: one consolidated JSON-LD `@graph` (`ScholarlyArticle`, `Dataset`, `SoftwareSourceCode`, `FAQPage`, authors, ASU) on the project page.
 - `<key>.txt` (e.g. `b3f01b1bd3b58d86e05a2483ef1042d0.txt`) — [IndexNow](https://www.indexnow.org/) key for Bing/Yandex reindexing; after deploys, ping `https://api.indexnow.org/indexnow?url=https://toolalignbench.github.io/&key=<key>`.
+- Social card: `static/images/og.png` is rendered from the Excalidraw scene [`og-card.excalidraw`](og-card.excalidraw) at the repo root (real `exportToSvg` via the [excalidraw-diagram](https://github.com/) skill's `render_excalidraw.py`, then centered paste onto a 1200×630 white canvas). Edit that scene and re-render to change the card. `static/images/og.jpg` is the retired card, kept so previously cached previews don't break.
 
 ## Agent-readiness surfaces
 
