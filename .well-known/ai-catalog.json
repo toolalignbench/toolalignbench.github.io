@@ -1,0 +1,99 @@
+{
+  "specVersion": "1.0",
+  "host": {
+    "displayName": "ToolAlignBench",
+    "identifier": "did:web:toolalignbench.github.io",
+    "documentationUrl": "https://toolalignbench.github.io/",
+    "logoUrl": "https://toolalignbench.github.io/static/images/og.jpg"
+  },
+  "entries": [
+    {
+      "identifier": "urn:air:toolalignbench.github.io:dataset:toolalignbench",
+      "displayName": "ToolAlignBench dataset (HuggingFace)",
+      "type": "application/json",
+      "url": "https://huggingface.co/api/datasets/aryankeluskar/ToolAlignBench",
+      "description": "128 alignment-conflict scenarios (64 organizational-wrongdoing + 64 matched safe) across 16 regulated domains, with domain-specific tool taxonomies. CC BY 4.0.",
+      "tags": ["benchmark", "llm-agents", "alignment", "dataset"],
+      "representativeQueries": [
+        "load the ToolAlignBench benchmark dataset",
+        "how many wrongdoing and safe scenarios does ToolAlignBench include",
+        "download ToolAlignBench scenario prompts and tool definitions"
+      ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:code:runner",
+      "displayName": "ToolAlignBench runner and analysis code (GitHub)",
+      "type": "application/json",
+      "url": "https://api.github.com/repos/aryankeluskar/ToolAlignBench",
+      "description": "Benchmark runner, inference shim, transcript analysis, and plotting code. MIT licensed.",
+      "tags": ["code", "evaluation", "reproduction"],
+      "representativeQueries": [
+        "reproduce ToolAlignBench evaluation runs",
+        "get the tool taxonomy used by ToolAlignBench domains",
+        "analyze ToolAlignBench transcripts and behavior labels"
+      ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:paper:arxiv-2607-14285",
+      "displayName": "ToolAlignBench paper (arXiv:2607.14285)",
+      "type": "application/pdf",
+      "url": "https://arxiv.org/pdf/2607.14285",
+      "description": "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs. Pluralistic Alignment Workshop at ICML 2026.",
+      "tags": ["paper", "icml-2026", "ai-safety"],
+      "representativeQueries": [
+        "find the ToolAlignBench paper PDF",
+        "instruction-override rates for tool-calling LLM agents",
+        "do safety-aligned LLM agents blow the whistle on their own organization"
+      ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:skills:agent-skills",
+      "displayName": "ToolAlignBench agent skills",
+      "type": "application/json",
+      "url": "https://toolalignbench.github.io/.well-known/agent-skills/index.json",
+      "description": "Agent skills for citing the paper, loading the dataset, and reproducing the benchmark.",
+      "tags": ["skills", "how-to", "citation"],
+      "representativeQueries": [
+        "how do I cite ToolAlignBench",
+        "how do I load the ToolAlignBench dataset with the datasets library",
+        "how do I run the ToolAlignBench benchmark on one model"
+      ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:api:catalog",
+      "displayName": "ToolAlignBench API catalog (RFC 9727)",
+      "type": "application/linkset+json",
+      "url": "https://toolalignbench.github.io/.well-known/api-catalog",
+      "description": "Linkset of machine-readable APIs for this project (HuggingFace dataset API, GitHub repo API, arXiv metadata API).",
+      "tags": ["api", "discovery"],
+      "representativeQueries": [
+        "programmatic APIs for ToolAlignBench",
+        "machine-readable metadata about the ToolAlignBench benchmark"
+      ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:docs:llms-txt",
+      "displayName": "ToolAlignBench llms.txt",
+      "type": "text/plain",
+      "url": "https://toolalignbench.github.io/llms.txt",
+      "description": "Curated LLM-readable summary: key results, links, authors, and citation.",
+      "tags": ["docs", "summary"],
+      "representativeQueries": [
+        "summary of ToolAlignBench key results",
+        "who are the authors of ToolAlignBench"
+      ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:docs:press-kit",
+      "displayName": "ToolAlignBench press kit",
+      "type": "text/markdown",
+      "url": "https://toolalignbench.github.io/press.md",
+      "description": "Plain-English press summary with headline numbers and figures.",
+      "tags": ["press", "summary"],
+      "representativeQueries": [
+        "press summary of ToolAlignBench findings",
+        "headline statistics from the ToolAlignBench paper"
+      ]
+    }
+  ]
+}

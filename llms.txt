@@ -24,6 +24,14 @@ Paper: "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enable
 - [Code: runner, inference shim, analysis (GitHub, MIT)](https://github.com/aryankeluskar/ToolAlignBench)
 - [Press kit](https://toolalignbench.github.io/press.md): plain-English summary, headline numbers, and figures for journalists.
 
+### Machine-readable surfaces for agents
+
+- [Capability manifest (ARD)](https://toolalignbench.github.io/.well-known/ai-catalog.json)
+- [API catalog (RFC 9727 linkset)](https://toolalignbench.github.io/.well-known/api-catalog)
+- [Agent skills index](https://toolalignbench.github.io/.well-known/agent-skills/index.json): how to cite, load the dataset, and run the benchmark.
+- [auth.md](https://toolalignbench.github.io/auth.md): access model — no auth, registration, or credentials needed.
+- [OAuth Protected Resource Metadata (RFC 9728)](https://toolalignbench.github.io/.well-known/oauth-protected-resource)
+
 ## Cite
 
 ```bibtex

@@ -227,11 +227,18 @@
   <link rel="stylesheet" href="./static/css/index.css" />
   <link rel="icon" type="image/webp" href="./static/images/favicon.webp" />
 
+  <!-- Agent discovery: ARD capability manifest (https://agenticresourcediscovery.org/) -->
+  <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
+  <!-- Markdown representation of this site's content for agents -->
+  <link rel="alternate" type="text/markdown" href="/llms.txt" />
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
   <script src="./static/js/bulma-carousel.min.js"></script>
   <script src="./static/js/bulma-slider.min.js"></script>
   <script src="./static/js/index.js"></script>
+  <!-- WebMCP: expose this page's actions to browser AI agents (https://webmachinelearning.github.io/webmcp/) -->
+  <script defer src="./static/js/webmcp.js"></script>
 
   <!-- src + website id are injected at deploy from GitHub Actions repo variables (see .github/workflows/pages.yml). A fork without those variables set tracks nothing. -->
   <script defer src="__UMAMI_SCRIPT_URL__" data-website-id="__UMAMI_WEBSITE_ID__"></script>
