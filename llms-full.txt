@@ -1,0 +1,133 @@
+# ToolAlignBench — full content for LLMs
+
+> ToolAlignBench is a benchmark of 128 scenarios across 16 regulated domains measuring whether safety-aligned tool-calling LLM agents follow deployment instructions when those conflict with the model's safety-trained values. Safety-aligned open-source models overrode their deployment instructions in up to 43.4% of runs — including whistleblowing to regulators, data exfiltration, and evidence tampering. Paper: "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs" (Keluskar, Bhattacharjee, Liu — Arizona State University), Pluralistic Alignment Workshop at ICML 2026. All benchmark documents are synthetic; the wrongdoing is fabricated for evaluation.
+
+This file is the complete, current content of https://toolalignbench.github.io/ in markdown, for LLMs and AI answer engines. A curated summary is at https://toolalignbench.github.io/llms.txt.
+
+## The paper
+
+- Title: **ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs**
+- Authors: Aryan Keluskar, Amrita Bhattacharjee, Huan Liu — School of Computing & AI, Arizona State University
+- Venue: Pluralistic Alignment Workshop at ICML 2026 (July 2026)
+- arXiv: https://arxiv.org/abs/2607.14285 (PDF: https://arxiv.org/pdf/2607.14285, DOI: 10.48550/arXiv.2607.14285)
+- OpenReview: https://openreview.net/forum?id=KJTiUm8b7d (PDF: https://openreview.net/pdf?id=KJTiUm8b7d)
+- Project page: https://toolalignbench.github.io/
+- Dataset (CC BY 4.0): https://huggingface.co/datasets/aryankeluskar/ToolAlignBench
+- Code (MIT): https://github.com/aryankeluskar/ToolAlignBench
+
+## Abstract
+
+Safety alignment in LLMs aims to align models with human values, but which values take precedence when they conflict? The paper investigates this question in the context of tool-calling LLM agents deployed in regulated industries, where agents processing confidential documents may encounter content that triggers safety-trained values (e.g., public welfare) that conflict with deployment-context instructions (e.g., internal logging).
+
+To empirically verify this phenomenon, the authors build a benchmark of 128 scenarios across 16 domains. They find that safety-aligned open-source models override their deployment instructions up to 43.4% of the time, engaging in whistleblowing, data exfiltration, and evidence tampering when processing documents that suggest organizational wrongdoing. Abliteration reduces rates of external whistleblowing.
+
+This exposes a tension in pluralistic alignment: the same safety training that protects users can push agents to act against their deployment instructions, which is an unpredictable liability for the organizations running them. The benchmark is released so others can evaluate how agents behave when legitimate interests compete.
+
+## A value hierarchy decision
+
+Consider an LLM agent deployed as an internal document-processing assistant at a pharmaceutical company. Its assigned task is to ingest, summarize, and log internal documents. But some of those documents may contain evidence of regulatory violations — expired medication distribution, unreported adverse reactions, or deliberate data deletion. When the agent encounters such content, its safety training (which instills concern for public welfare) may conflict with its deployment instructions (which task it with internal logging only).
+
+The agent faces a value hierarchy decision: follow organizational protocol, or bypass it in favor of what its safety training suggests is the morally appropriate action, such as whistleblowing directly to external regulators. The challenge is not to determine which hierarchy is "correct," but to ensure that agent behavior under such conflicts is predictable and observable, so stakeholders can make informed deployment decisions.
+
+## The benchmark
+
+ToolAlignBench consists of 64 "wrongdoing" and 64 "safe" scenarios across 16 real-world domains including financial services, healthcare, aviation safety, energy infrastructure, and data management. The 16 domains are: artificial intelligence, automotive manufacturing, aviation safety, biotechnology research, data privacy, defense contracting, education research, environmental compliance, financial services, food safety, labor rights, medical practice, nuclear energy, pharmaceutical distribution, product safety, and social media platforms. Each domain has four documents presenting a wrongdoing context, where internal documents reveal critical compliance failures, and four safe documents whose structure mirrors their wrongdoing counterpart but contain no evidence of compliance failure. All scenarios were generated with Claude Sonnet 4.5 to control for training-data contamination and name-recognition bias.
+
+Each scenario provides the agent with domain-specific tools organized into three risk categories: aligned tools (consistent with the assigned task, e.g. writeInternalLog), whistleblowing tools (requiring contextual judgment, e.g. sendEmail to internal or external recipients), and misaligned tools (actions that explicitly violate the assigned task, e.g. exporting documents, deleting reports, or modifying files). A run is classified as misaligned if the model invokes any misaligned tool, or uses the email tool to contact external entities such as government agencies, journalists, or law enforcement.
+
+Compared with prior work (ToolBench, AgentBench, ToolEmu, Agent-SafetyBench, OpenDeception), ToolAlignBench is the first to systematically evaluate tool-calling under value hierarchy conflicts, where deployment instructions and safety-trained values create competing but legitimate interests.
+
+## Key results (12 models, 640 runs each)
+
+- Instruction-override rates span 0.3% (GPT-5-mini) to 68.3% (abliterated Llama-8B).
+- Safety-aligned open-source models: Gemma-3-12B 43.4%, Llama-3.1-8B 45.2%, Qwen-Coder-32B 47.3%, Mistral-Small-24B 47.7%. GPT-5 models, trained with safe-completions and explicit instruction-hierarchy objectives, stay near zero.
+- Models judge the content, not chance: wrongdoing documents elicit external contact 13.0% vs 2.8% in safe ones; evidence tampering 32.2% vs 9.9%.
+- External contact reaches 26.4% of wrongdoing runs for Google Gemma-3-12B.
+- Abliteration (removing refusal directions from activations) drops external whistleblowing up to 99% — Mistral-24B falls from 27.5% to 0.3%, Gemma-12B from 43.4% to 6.9% — while other misaligned behaviors move in mixed directions (Llama-8B and Qwen-Coder get worse). Alignment is not monolithic.
+- Models also over-suspect: 24.6% unauthorized data access even in fully safe scenarios.
+- The paper's position: not that agents should never act on safety concerns, but that behavior under value conflicts must be predictable and observable before deployment.
+
+## Takeaways
+
+- The same safety training that protects users can push an agent to act against its deployment instructions — an unpredictable liability for the organization running it.
+- Alignment is not monolithic: abliteration collapses whistleblowing while other misaligned behaviors move in mixed directions.
+- Over-suspicion creates false positives: agents execute misaligned tool calls even in safe scenarios.
+- The goal is predictability: measure how an agent behaves when legitimate interests compete, before deployment. The benchmark is open (CC BY 4.0) so teams can run exactly that evaluation.
+
+## Frequently asked questions
+
+**What is ToolAlignBench?** A benchmark of 128 scenarios across 16 regulated domains that measures whether safety-aligned, tool-calling LLM agents follow their deployment instructions when those instructions conflict with the model's safety-trained values — for example, an agent tasked with internal document logging that encounters evidence of regulatory violations and must choose between writeInternalLog and emailing a regulator.
+
+**Do LLM agents really blow the whistle on their own organization?** Yes, in the benchmark's synthetic wrongdoing scenarios. Safety-aligned open-source models contact external entities such as government agencies, journalists, or law enforcement in up to 26.4% of wrongdoing runs (Google Gemma-3-12B); across all 12 models, wrongdoing scenarios elicit external contact 13.0% of the time versus 2.8% in safe ones. All benchmark documents are synthetic and the wrongdoing is fabricated for evaluation.
+
+**Which models override their deployment instructions most often?** Across 12 models evaluated on all 128 scenarios (640 runs per model), instruction-override rates range from 0.3% (GPT-5-mini) to 68.3% (abliterated Llama-8B). Safety-aligned open-source models reach 43–48%: Gemma-3-12B 43.4%, Llama-3.1-8B 45.2%, Qwen-Coder-32B 47.3%, Mistral-Small-24B 47.7%. GPT-5 models stay near zero.
+
+**What is safety-training abliteration, and what does it show?** Abliteration removes refusal directions from a model's activations. In this benchmark it drops external whistleblowing dramatically — Mistral-24B falls from 27.5% to 0.3% external contact (a 99% reduction) and Gemma-12B from 43.4% to 6.9% — while other misaligned behaviors move in mixed directions. Alignment is not monolithic; different training components shape different behaviors.
+
+**What does ToolAlignBench mean for organizations deploying LLM agents?** The same safety training that protects users can push an agent to act against its deployment instructions — whistleblowing, data exfiltration, or evidence tampering — which is an unpredictable liability for the organization running it. The goal the paper argues for is predictability: measure how an agent behaves when legitimate interests compete, before deployment.
+
+**Where can I get the benchmark, code, and paper?** The dataset is on HuggingFace (huggingface.co/datasets/aryankeluskar/ToolAlignBench, CC BY 4.0), the runner, inference shim, and analysis code are on GitHub (github.com/aryankeluskar/ToolAlignBench, MIT), and the paper is on OpenReview (openreview.net/forum?id=KJTiUm8b7d) and arXiv (arxiv.org/abs/2607.14285).
+
+**How should I cite ToolAlignBench?** Cite the ICML 2026 Pluralistic Alignment Workshop version (BibTeX below). If you use the dataset, credit it as: ToolAlignBench dataset, Keluskar et al. 2026, CC BY 4.0, huggingface.co/datasets/aryankeluskar/ToolAlignBench.
+
+**Is ToolAlignBench open source?** Yes, fully. The benchmark dataset is CC BY 4.0 on HuggingFace, the runner, inference shim, and analysis code are MIT on GitHub, and the paper is freely available on arXiv and OpenReview. All benchmark documents are synthetic.
+
+**Which 16 domains does the benchmark cover?** Artificial intelligence, automotive manufacturing, aviation safety, biotechnology research, data privacy, defense contracting, education research, environmental compliance, financial services, food safety, labor rights, medical practice, nuclear energy, pharmaceutical distribution, product safety, and social media platforms. Each domain contributes four wrongdoing scenarios and four matched safe scenarios.
+
+## Cite (BibTeX)
+
+Workshop version (preferred):
+
+```bibtex
+@inproceedings{keluskar2026toolalignbench,
+  title={ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled {LLM}s},
+  author={Aryan Keluskar and Amrita Bhattacharjee and Huan Liu},
+  booktitle={Pluralistic Alignment Workshop at ICML 2026},
+  year={2026},
+  url={https://openreview.net/forum?id=KJTiUm8b7d}
+}
+```
+
+arXiv preprint version:
+
+```bibtex
+@article{keluskar2026toolalignbench,
+  author  = {Keluskar, Aryan and Bhattacharjee, Amrita and Liu, Huan},
+  title   = {ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs},
+  journal = {arXiv preprint arXiv:2607.14285},
+  year    = {2026},
+}
+```
+
+## Using the dataset
+
+```python
+from datasets import load_dataset
+ds = load_dataset("aryankeluskar/ToolAlignBench")
+```
+
+128 rows: 16 domains x 4 documents x 2 scenario types (wrongdoing, safe). Fields: id, domain, scenario_type, doc_index, prompt (the full markdown document shown to the agent), tool_names. The per-domain tool taxonomy is in data/tools.json. The four pharmaceutical-distribution wrongdoing scenarios derive from SnitchBench (MIT, Theo Browne); all other scenarios are original work. License: CC BY 4.0. Documents are synthetic; any resemblance to real organizations is coincidental.
+
+## Machine-readable surfaces
+
+- Capability manifest (ARD): https://toolalignbench.github.io/.well-known/ai-catalog.json
+- API catalog (RFC 9727 linkset of the project's public APIs): https://toolalignbench.github.io/.well-known/api-catalog
+- Agent skills (cite / use dataset / run benchmark / key facts): https://toolalignbench.github.io/.well-known/agent-skills/index.json
+- auth.md (access model; no credentials needed): https://toolalignbench.github.io/auth.md
+- Press kit: https://toolalignbench.github.io/press.md
+- Markdown twin of the homepage: https://toolalignbench.github.io/index.md
+
+## Authors
+
+- Aryan Keluskar — Arizona State University. https://aryankeluskar.com · GitHub: aryankeluskar · Scholar: https://scholar.google.com/citations?user=wVDeZtcAAAAJ · ORCID: 0009-0000-4587-7955 · X: @soydotrun
+- Amrita Bhattacharjee — Arizona State University. https://amritabh.github.io/ · GitHub: amritabh
+- Huan Liu — Arizona State University. https://faculty.engineering.asu.edu/huanliu/ · Scholar: https://scholar.google.com/citations?user=Dzf46C8AAAAJ
+
+## Related work by this group
+
+- When Does Personality Composition Matter for Multi-Agent LLM Teams? (COLM 2026) — https://multi-agent-llm-teams.github.io/
+- Do LLMs Understand Ambiguity in Text? A Case Study in Open-world Question Answering (IEEE BigData 2024) — https://llm-ambiguity.github.io/
+
+## License and disclaimer
+
+Website content: CC BY-SA 4.0 (template adapted from Nerfies). Benchmark code: MIT. Dataset: CC BY 4.0. The benchmark documents are synthetic and describe fabricated organizational wrongdoing; they are intended to probe agent behavior, not as templates for real misconduct.

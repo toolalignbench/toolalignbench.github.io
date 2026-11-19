@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>ToolAlignBench</title>
+  <subtitle>Benchmark of alignment conflicts in tool-calling LLM agents — project updates</subtitle>
+  <id>https://toolalignbench.github.io/</id>
+  <link href="https://toolalignbench.github.io/atom.xml" rel="self"/>
+  <link href="https://toolalignbench.github.io/" rel="alternate"/>
+  <updated>2026-11-19T00:00:00Z</updated>
+  <author>
+    <name>Aryan Keluskar</name>
+    <uri>https://aryankeluskar.com</uri>
+  </author>
+  <entry>
+    <title>Agent-accessible surfaces: full-content llms-full.txt, markdown twin, agent skills, WebMCP tools</title>
+    <id>https://toolalignbench.github.io/#update-2026-11-19</id>
+    <link href="https://toolalignbench.github.io/"/>
+    <updated>2026-11-19T00:00:00Z</updated>
+    <summary>The project page now serves complete machine-readable surfaces for AI agents and answer engines: llms-full.txt (full site content in markdown), index.md (markdown twin of the homepage), an agent skills index, three WebMCP tools, an RFC 9727 API catalog, an ARD capability manifest, Content Signals in robots.txt, and a valid FAQPage dataset for grounding answers.</summary>
+  </entry>
+  <entry>
+    <title>ToolAlignBench accepted to the Pluralistic Alignment Workshop at ICML 2026</title>
+    <id>https://toolalignbench.github.io/#paper-2026-07-15</id>
+    <link href="https://toolalignbench.github.io/"/>
+    <updated>2026-07-15T00:00:00Z</updated>
+    <summary>"ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs" by Aryan Keluskar, Amrita Bhattacharjee, and Huan Liu is published at the Pluralistic Alignment Workshop at ICML 2026. The 128-scenario benchmark dataset (CC BY 4.0) is on HuggingFace and the runner, inference shim, and analysis code (MIT) are on GitHub.</summary>
+  </entry>
+</feed>

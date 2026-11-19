@@ -65,8 +65,12 @@ Uncomment additional entries to reproduce the full Table 1.
 ## For search engines and AI assistants
 
 - [`llms.txt`](https://toolalignbench.github.io/llms.txt) — machine-readable site summary.
+- [`llms-full.txt`](https://toolalignbench.github.io/llms-full.txt) — complete site content in markdown for LLMs.
+- [`index.md`](https://toolalignbench.github.io/index.md) — markdown twin of the homepage (llms.txt v2 convention).
+- [`atom.xml`](https://toolalignbench.github.io/atom.xml) — update feed.
 - [`press.md`](https://toolalignbench.github.io/press.md) — press kit with headline numbers and figures.
-- Structured data: `ScholarlyArticle`, `Dataset`, and `FAQPage` JSON-LD on the project page.
+- Structured data: one consolidated JSON-LD `@graph` (`ScholarlyArticle`, `Dataset`, `SoftwareSourceCode`, `FAQPage`, authors, ASU) on the project page.
+- `<key>.txt` (e.g. `b3f01b1bd3b58d86e05a2483ef1042d0.txt`) — [IndexNow](https://www.indexnow.org/) key for Bing/Yandex reindexing; after deploys, ping `https://api.indexnow.org/indexnow?url=https://toolalignbench.github.io/&key=<key>`.
 
 ## Agent-readiness surfaces
 

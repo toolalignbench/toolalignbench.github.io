@@ -94,6 +94,29 @@
         "press summary of ToolAlignBench findings",
         "headline statistics from the ToolAlignBench paper"
       ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:docs:llms-full",
+      "displayName": "ToolAlignBench full content for LLMs (llms-full.txt)",
+      "type": "text/plain",
+      "url": "https://toolalignbench.github.io/llms-full.txt",
+      "description": "Complete site content in markdown: abstract, benchmark design, all key results, FAQs, and BibTeX.",
+      "tags": ["docs", "llms", "full-content"],
+      "representativeQueries": [
+        "full details of the ToolAlignBench benchmark",
+        "ToolAlignBench key results and statistics"
+      ]
+    },
+    {
+      "identifier": "urn:air:toolalignbench.github.io:docs:index-md",
+      "displayName": "ToolAlignBench markdown homepage twin (index.md)",
+      "type": "text/markdown",
+      "url": "https://toolalignbench.github.io/index.md",
+      "description": "Markdown version of the project homepage per the llms.txt v2 convention.",
+      "tags": ["docs", "markdown"],
+      "representativeQueries": [
+        "markdown version of the ToolAlignBench project page"
+      ]
     }
   ]
 }

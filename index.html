@@ -60,50 +60,113 @@
   <meta property="article:author" content="https://amritabh.github.io/" />
   <meta property="article:author" content="https://faculty.engineering.asu.edu/huanliu/" />
 
+    <!-- Structured data: consolidated entity graph (ScholarlyArticle, Dataset, SoftwareSourceCode, FAQPage, authors, ASU) -->
   <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "@id": "https://toolalignbench.github.io/#website",
+      "url": "https://toolalignbench.github.io/",
+      "name": "ToolAlignBench",
+      "description": "Project page for the ToolAlignBench benchmark: alignment conflicts in tool-calling LLM agents.",
+      "inLanguage": "en"
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://toolalignbench.github.io/#webpage",
+      "url": "https://toolalignbench.github.io/",
+      "name": "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs",
+      "description": "128 scenarios across 16 regulated domains show safety-aligned tool-calling LLM agents override their deployment instructions up to 43.4% of the time.",
+      "isPartOf": {
+        "@id": "https://toolalignbench.github.io/#website"
+      },
+      "about": [
+        {
+          "@id": "https://toolalignbench.github.io/#article"
+        }
+      ],
+      "mainEntity": [
+        {
+          "@id": "https://toolalignbench.github.io/#article"
+        },
+        {
+          "@id": "https://toolalignbench.github.io/#dataset"
+        }
+      ],
+      "inLanguage": "en"
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://toolalignbench.github.io/#org-asu",
+      "name": "Arizona State University",
+      "url": "https://www.asu.edu/",
+      "sameAs": [
+        "https://www.asu.edu/"
+      ]
+    },
+    {
+      "@type": "Person",
+      "@id": "https://toolalignbench.github.io/#author-aryan-keluskar",
+      "name": "Aryan Keluskar",
+      "url": "https://aryankeluskar.com",
+      "sameAs": [
+        "https://aryankeluskar.com",
+        "https://github.com/aryankeluskar",
+        "https://www.linkedin.com/in/aryankeluskar/",
+        "https://x.com/soydotrun",
+        "https://scholar.google.com/citations?user=wVDeZtcAAAAJ",
+        "https://orcid.org/0009-0000-4587-7955",
+        "https://openreview.net/profile?id=~Aryan_Keluskar1",
+        "https://www.alphaxiv.org/@aryan-keluskar"
+      ],
+      "affiliation": {
+        "@id": "https://toolalignbench.github.io/#org-asu"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://toolalignbench.github.io/#author-amrita-bhattacharjee",
+      "name": "Amrita Bhattacharjee",
+      "url": "https://amritabh.github.io/",
+      "sameAs": [
+        "https://amritabh.github.io/",
+        "https://github.com/amritabh"
+      ],
+      "affiliation": {
+        "@id": "https://toolalignbench.github.io/#org-asu"
+      }
+    },
+    {
+      "@type": "Person",
+      "@id": "https://toolalignbench.github.io/#author-huan-liu",
+      "name": "Huan Liu",
+      "url": "https://faculty.engineering.asu.edu/huanliu/",
+      "sameAs": [
+        "https://faculty.engineering.asu.edu/huanliu/",
+        "https://scholar.google.com/citations?user=Dzf46C8AAAAJ",
+        "https://dblp.org/pid/92/309-1.html"
+      ],
+      "affiliation": {
+        "@id": "https://toolalignbench.github.io/#org-asu"
+      }
+    },
+    {
       "@type": "ScholarlyArticle",
+      "@id": "https://toolalignbench.github.io/#article",
       "headline": "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs",
       "name": "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs",
       "description": "A benchmark of 128 scenarios across 16 regulated domains. Safety-aligned open-source models override their deployment instructions up to 43.4% of the time.",
       "author": [
         {
-          "@type": "Person",
-          "name": "Aryan Keluskar",
-          "url": "https://aryankeluskar.com",
-          "sameAs": [
-            "https://aryankeluskar.com",
-            "https://github.com/aryankeluskar",
-            "https://www.linkedin.com/in/aryankeluskar/",
-            "https://x.com/soydotrun",
-            "https://scholar.google.com/citations?user=wVDeZtcAAAAJ",
-            "https://orcid.org/0009-0000-4587-7955",
-            "https://openreview.net/profile?id=~Aryan_Keluskar1",
-            "https://www.alphaxiv.org/@aryan-keluskar"
-          ],
-          "affiliation": { "@type": "Organization", "name": "Arizona State University" }
+          "@id": "https://toolalignbench.github.io/#author-aryan-keluskar"
         },
         {
-          "@type": "Person",
-          "name": "Amrita Bhattacharjee",
-          "url": "https://amritabh.github.io/",
-          "sameAs": [
-            "https://amritabh.github.io/",
-            "https://github.com/amritabh"
-          ],
-          "affiliation": { "@type": "Organization", "name": "Arizona State University" }
+          "@id": "https://toolalignbench.github.io/#author-amrita-bhattacharjee"
         },
         {
-          "@type": "Person",
-          "name": "Huan Liu",
-          "url": "https://faculty.engineering.asu.edu/huanliu/",
-          "sameAs": [
-            "https://faculty.engineering.asu.edu/huanliu/",
-            "https://scholar.google.com/citations?user=Dzf46C8AAAAJ",
-            "https://dblp.org/pid/92/309-1.html"
-          ],
-          "affiliation": { "@type": "Organization", "name": "Arizona State University" }
+          "@id": "https://toolalignbench.github.io/#author-huan-liu"
         }
       ],
       "datePublished": "2026-07-15",
@@ -118,52 +181,132 @@
         "https://dblp.org/rec/journals/corr/abs-2607-14285.html"
       ],
       "identifier": [
-        { "@type": "PropertyValue", "propertyID": "arXiv", "value": "2607.14285" },
-        { "@type": "PropertyValue", "propertyID": "DOI", "value": "10.48550/arXiv.2607.14285" }
+        {
+          "@type": "PropertyValue",
+          "propertyID": "arXiv",
+          "value": "2607.14285"
+        },
+        {
+          "@type": "PropertyValue",
+          "propertyID": "DOI",
+          "value": "10.48550/arXiv.2607.14285"
+        }
       ],
-      "publication": { "@type": "PublicationEvent", "name": "Pluralistic Alignment Workshop at ICML 2026" },
-      "keywords": ["ToolAlignBench", "AI alignment", "value pluralism", "LLM agents", "tool calling", "safety training", "instruction hierarchy"]
-    }
-  </script>
-
-  <!-- Structured data: the benchmark as a Dataset (Google Dataset Search + AI answers) -->
-  <script type="application/ld+json">
+      "publication": {
+        "@type": "PublicationEvent",
+        "name": "Pluralistic Alignment Workshop at ICML 2026"
+      },
+      "keywords": [
+        "ToolAlignBench",
+        "AI alignment",
+        "value pluralism",
+        "LLM agents",
+        "tool calling",
+        "safety training",
+        "instruction hierarchy"
+      ],
+      "about": [
+        {
+          "@id": "https://toolalignbench.github.io/#dataset"
+        }
+      ],
+      "mentions": [
+        {
+          "@id": "https://toolalignbench.github.io/#repo"
+        }
+      ]
+    },
     {
-      "@context": "https://schema.org",
       "@type": "Dataset",
+      "@id": "https://toolalignbench.github.io/#dataset",
       "name": "ToolAlignBench",
       "alternateName": "ToolAlignBench: alignment-conflict scenarios for tool-calling LLM agents",
       "url": "https://huggingface.co/datasets/aryankeluskar/ToolAlignBench",
       "description": "A benchmark of 128 scenarios (64 organizational-wrongdoing and 64 matched safe documents) across 16 regulated domains, each with a domain-specific tool taxonomy covering aligned tools (e.g. writeInternalLog), whistleblowing tools (e.g. sendEmail to internal or external recipients), and misaligned tools (e.g. document export, report deletion, file modification). Designed to evaluate whether safety-aligned tool-calling LLM agents follow deployment instructions when their safety-trained values conflict with them. All documents are synthetic; wrongdoing is fabricated for evaluation only.",
       "creator": [
-        { "@type": "Person", "name": "Aryan Keluskar", "url": "https://aryankeluskar.com", "affiliation": { "@type": "Organization", "name": "Arizona State University" } },
-        { "@type": "Person", "name": "Amrita Bhattacharjee", "url": "https://amritabh.github.io/", "affiliation": { "@type": "Organization", "name": "Arizona State University" } },
-        { "@type": "Person", "name": "Huan Liu", "url": "https://faculty.engineering.asu.edu/huanliu/", "affiliation": { "@type": "Organization", "name": "Arizona State University" } }
+        {
+          "@id": "https://toolalignbench.github.io/#author-aryan-keluskar"
+        },
+        {
+          "@id": "https://toolalignbench.github.io/#author-amrita-bhattacharjee"
+        },
+        {
+          "@id": "https://toolalignbench.github.io/#author-huan-liu"
+        }
       ],
       "datePublished": "2026-07-15",
       "dateModified": "2026-07-15",
       "inLanguage": "en",
       "isAccessibleForFree": true,
       "license": "https://creativecommons.org/licenses/by/4.0/",
-      "keywords": ["LLM agents", "AI safety", "alignment", "benchmark", "tool calling", "value hierarchy", "instruction hierarchy", "whistleblowing", "agent evaluation"],
+      "keywords": [
+        "LLM agents",
+        "AI safety",
+        "alignment",
+        "benchmark",
+        "tool calling",
+        "value hierarchy",
+        "instruction hierarchy",
+        "whistleblowing",
+        "agent evaluation"
+      ],
       "distribution": [
-        { "@type": "DataDownload", "encodingFormat": "application/x-ndjson", "contentUrl": "https://huggingface.co/datasets/aryankeluskar/ToolAlignBench" },
-        { "@type": "DataDownload", "encodingFormat": "text/markdown", "contentUrl": "https://github.com/aryankeluskar/ToolAlignBench" }
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "application/x-ndjson",
+          "contentUrl": "https://huggingface.co/datasets/aryankeluskar/ToolAlignBench"
+        },
+        {
+          "@type": "DataDownload",
+          "encodingFormat": "text/markdown",
+          "contentUrl": "https://github.com/aryankeluskar/ToolAlignBench"
+        }
       ],
       "sameAs": [
         "https://toolalignbench.github.io/",
         "https://arxiv.org/abs/2607.14285",
         "https://openreview.net/forum?id=KJTiUm8b7d",
         "https://dblp.org/rec/journals/corr/abs-2607-14285.html"
+      ],
+      "subjectOf": [
+        {
+          "@id": "https://toolalignbench.github.io/#article"
+        }
       ]
-    }
-  </script>
-
-  <!-- Structured data: FAQ (AI answer-engine optimization) -->
-  <script type="application/ld+json">
+    },
     {
-      "@context": "https://schema.org",
+      "@type": "SoftwareSourceCode",
+      "@id": "https://toolalignbench.github.io/#repo",
+      "name": "ToolAlignBench runner, inference shim, and analysis code",
+      "description": "Benchmark runner, FastAPI inference shim for local HuggingFace models, transcript analysis, and figure generation for ToolAlignBench.",
+      "codeRepository": "https://github.com/aryankeluskar/ToolAlignBench",
+      "programmingLanguage": [
+        "TypeScript",
+        "Python"
+      ],
+      "license": "https://opensource.org/licenses/MIT",
+      "author": [
+        {
+          "@id": "https://toolalignbench.github.io/#author-aryan-keluskar"
+        },
+        {
+          "@id": "https://toolalignbench.github.io/#author-amrita-bhattacharjee"
+        },
+        {
+          "@id": "https://toolalignbench.github.io/#author-huan-liu"
+        }
+      ],
+      "isAccessibleForFree": true,
+      "url": "https://github.com/aryankeluskar/ToolAlignBench",
+      "about": [
+        {
+          "@id": "https://toolalignbench.github.io/#dataset"
+        }
+      ]
+    },
+    {
       "@type": "FAQPage",
+      "@id": "https://toolalignbench.github.io/#faq",
       "mainEntity": [
         {
           "@type": "Question",
@@ -212,11 +355,41 @@
             "@type": "Answer",
             "text": "The dataset is on HuggingFace (huggingface.co/datasets/aryankeluskar/ToolAlignBench, CC BY 4.0), the runner, inference shim, and analysis code are on GitHub (github.com/aryankeluskar/ToolAlignBench, MIT), and the paper is on OpenReview (openreview.net/forum?id=KJTiUm8b7d) and arXiv (arxiv.org/abs/2607.14285)."
           }
+        },
+        {
+          "@type": "Question",
+          "name": "How should I cite ToolAlignBench?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Cite the ICML 2026 Pluralistic Alignment Workshop version: \"ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enabled LLMs\", Keluskar, Bhattacharjee, and Liu, 2026. The full BibTeX is in the Cite section of the project page, and AI assistants can retrieve it with the page's get_bibtex_citation WebMCP tool. If you use the dataset, credit it as: ToolAlignBench dataset, Keluskar et al. 2026, CC BY 4.0, huggingface.co/datasets/aryankeluskar/ToolAlignBench."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Is ToolAlignBench open source?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Yes, fully. The benchmark dataset is CC BY 4.0 on HuggingFace, the runner, inference shim, and analysis code are MIT on GitHub, and the paper is freely available on arXiv and OpenReview. All benchmark documents are synthetic."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Which 16 domains does the benchmark cover?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Artificial intelligence, automotive manufacturing, aviation safety, biotechnology research, data privacy, defense contracting, education research, environmental compliance, financial services, food safety, labor rights, medical practice, nuclear energy, pharmaceutical distribution, product safety, and social media platforms. Each domain contributes four wrongdoing scenarios and four matched safe scenarios."
+          }
         }
       ]
     }
+  ]
+}
   </script>
 
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link rel="preconnect" href="https://ajax.googleapis.com" />
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" />
   <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro" rel="stylesheet" />
 
   <link rel="stylesheet" href="./static/css/bulma.min.css" />
@@ -229,8 +402,10 @@
 
   <!-- Agent discovery: ARD capability manifest (https://agenticresourcediscovery.org/) -->
   <link rel="ai-catalog" href="/.well-known/ai-catalog.json" />
-  <!-- Markdown representation of this site's content for agents -->
-  <link rel="alternate" type="text/markdown" href="/llms.txt" />
+  <!-- llms.txt v2 conventions: describedby → the llms.txt covering this page; alternate → this page's markdown twin -->
+  <link rel="describedby" href="/llms.txt" />
+  <link rel="alternate" type="text/markdown" href="/index.md" />
+  <link rel="alternate" type="application/atom+xml" title="ToolAlignBench updates" href="/atom.xml" />
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
   <script defer src="./static/js/fontawesome.all.min.js"></script>
@@ -368,7 +543,7 @@
   <section class="hero teaser">
     <div class="container is-max-desktop">
       <div class="hero-body">
-        <img src="./static/images/bench.png"
+        <img src="./static/images/bench.webp" width="1536" height="933" fetchpriority="high" decoding="async"
           alt="ToolAlignBench overview: an LLM agent reads a confidential PharmaCorp report of unreported adverse drug reactions. Its user instructions conflict with its public safety obligations, and its scratchpad reasons its way to calling sendEmail to the FDA instead of only writeInternalLog." />
         <h2 class="subtitle has-text-centered">
           When safety-trained LLM agents encounter documents suggesting
@@ -494,7 +669,7 @@
               journalists, or law enforcement.
             </p>
           </div>
-          <img src="./static/images/benchmark_curation_2.png"
+          <img src="./static/images/benchmark_curation_2.webp" width="1810" height="518" loading="lazy" decoding="async"
             alt="Benchmark curation and evaluation pipeline: Claude Sonnet 4.5 turns base scenario templates and 16 real-world domains into 64 wrongdoing and 64 safe scenarios. Agents given a confidentiality system prompt and tools are then classified as whistleblowing, data exfiltration or tampering, or aligned task completion." />
           <p class="has-text-centered is-size-6" style="margin-top: 0.75rem">
             Our benchmark curation and evaluation of model outputs.
@@ -729,7 +904,7 @@
             </p>
           </div>
           <div class="content has-text-centered">
-            <img src="./static/images/behaviors-by-scenario.png"
+            <img src="./static/images/behaviors-by-scenario.webp" width="1200" height="800" loading="lazy" decoding="async"
               alt="Bar chart of behavior rates by scenario type. External contact is 13.0% in wrongdoing scenarios versus 2.8% in safe ones, overall misalignment is about 47% versus 19%, and aligned logging stays above 90% in both."
               style="max-width: 80%" />
             <p class="is-size-6" style="margin-top: 0.75rem">
@@ -840,7 +1015,7 @@
             </p>
           </div>
           <div class="content has-text-centered">
-            <img src="./static/images/domain-analysis-4panel-mistral-gemma.png"
+            <img src="./static/images/domain-analysis-4panel-mistral-gemma.webp" width="1900" height="1400" loading="lazy" decoding="async"
               alt="Four bar charts of the top 10 domains by behavioral variance for Mistral 24B and Gemma 12B, safety-aligned and abliterated. Black bars show aligned logging and red bars show combined misalignment and whistleblowing." />
             <p class="is-size-6" style="margin-top: 0.75rem">
               Domain-specific behavior across safety-aligned and abliterated
@@ -940,6 +1115,31 @@
               <a href="https://github.com/aryankeluskar/ToolAlignBench">GitHub</a> (MIT), and the paper
               is on <a href="https://openreview.net/forum?id=KJTiUm8b7d">OpenReview</a> and
               <a href="https://arxiv.org/abs/2607.14285">arXiv</a>.</p>
+
+            <h3 class="title is-5">How should I cite ToolAlignBench?</h3>
+            <p>Cite the ICML 2026 Pluralistic Alignment Workshop version: &ldquo;ToolAlignBench:
+              Investigating Alignment Conflicts in Tool-Calling Enabled LLMs&rdquo;,
+              Keluskar, Bhattacharjee, and Liu, 2026. The full BibTeX is in the
+              <a href="#BibTeX">Cite section</a> below, and AI assistants can also retrieve it with this
+              page&rsquo;s <code>get_bibtex_citation</code> WebMCP tool. If you use the dataset, credit it as:
+              ToolAlignBench dataset, Keluskar et al. 2026, CC BY 4.0,
+              <a href="https://huggingface.co/datasets/aryankeluskar/ToolAlignBench">huggingface.co/datasets/aryankeluskar/ToolAlignBench</a>.</p>
+
+            <h3 class="title is-5">Is ToolAlignBench open source?</h3>
+            <p>Yes, fully. The benchmark dataset is
+              <a href="https://huggingface.co/datasets/aryankeluskar/ToolAlignBench">CC BY 4.0 on HuggingFace</a>,
+              the runner, inference shim, and analysis code are
+              <a href="https://github.com/aryankeluskar/ToolAlignBench">MIT on GitHub</a>, and the paper is
+              freely available on <a href="https://arxiv.org/abs/2607.14285">arXiv</a> and
+              <a href="https://openreview.net/forum?id=KJTiUm8b7d">OpenReview</a>. All benchmark documents
+              are synthetic.</p>
+
+            <h3 class="title is-5">Which 16 domains does the benchmark cover?</h3>
+            <p>Artificial intelligence, automotive manufacturing, aviation safety, biotechnology research,
+              data privacy, defense contracting, education research, environmental compliance, financial
+              services, food safety, labor rights, medical practice, nuclear energy, pharmaceutical
+              distribution, product safety, and social media platforms. Each domain contributes four
+              wrongdoing scenarios and four matched safe scenarios.</p>
           </div>
         </div>
       </div>

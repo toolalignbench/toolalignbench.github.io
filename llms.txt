@@ -16,6 +16,8 @@ Paper: "ToolAlignBench: Investigating Alignment Conflicts in Tool-Calling Enable
 
 ## Links
 
+- [Full site content for LLMs (llms-full.txt)](https://toolalignbench.github.io/llms-full.txt): every section, result, FAQ, and citation in one markdown file.
+- [Markdown version of this page (index.md)](https://toolalignbench.github.io/index.md)
 - [Project page](https://toolalignbench.github.io/): abstract, results tables, figures, FAQ.
 - [Paper PDF (OpenReview)](https://openreview.net/pdf?id=KJTiUm8b7d)
 - [OpenReview forum](https://openreview.net/forum?id=KJTiUm8b7d)
