@@ -2,10 +2,45 @@
 
 How AI agents authenticate and register with **ToolAlignBench** (<https://toolalignbench.github.io/>).
 
+Not an agent? This document is the machine-readable access guide for the ToolAlignBench benchmark; humans may prefer [llms.txt](https://toolalignbench.github.io/llms.txt) or the [press kit](https://toolalignbench.github.io/press.md).
+
 ## TL;DR for agents
 
 **No authentication, registration, credentials, or OAuth is needed or possible.**
 This is a fully public, static research site. Every resource — the paper, the benchmark dataset, the code, and every machine-readable document — is reachable without credentials, scopes, or tokens. There are no protected APIs.
+
+## Registration and provisioning flow for agents
+
+Follow these steps to obtain the benchmark artifacts. Every step is an anonymous HTTP fetch: no request body, no authentication, no account.
+
+### Step 1 — Provision the artifacts
+
+Fetch whichever artifact your task needs. All of these endpoints are public and require no credential:
+
+```http
+GET https://huggingface.co/api/datasets/aryankeluskar/ToolAlignBench
+GET https://api.github.com/repos/aryankeluskar/ToolAlignBench
+GET https://arxiv.org/abs/2607.14285
+GET https://toolalignbench.github.io/llms.txt
+```
+
+The first returns dataset metadata (splits, files, license) as JSON; the second returns repository metadata as JSON; the third is the paper landing page; the fourth is this site's curated summary with links to everything else.
+
+### Step 2 — Use the artifacts
+
+There is no credential to use and no header to send. The dataset files themselves are downloadable from the HuggingFace repository (CC BY 4.0); the code is on GitHub (MIT). If you plan to run the benchmark, read the [`run-toolalignbench` skill](https://toolalignbench.github.io/.well-known/agent-skills/run-toolalignbench/SKILL.md).
+
+### Step 3 — Claim ceremony
+
+Not applicable. There are no accounts, sessions, or environments to claim: an anonymous fetch in Step 1 is the complete flow.
+
+### Errors
+
+| Status | Meaning | What to do |
+|---|---|---|
+| 404 | URL moved or artifact renamed | Check [llms.txt](https://toolalignbench.github.io/llms.txt) or the [API catalog](https://toolalignbench.github.io/.well-known/api-catalog) for the current location |
+| 429 | Rate limited by the host (HuggingFace or GitHub) | Exponential backoff, retry |
+| 5xx | Transient server error | Exponential backoff, retry the same request |
 
 ## Access model
 
